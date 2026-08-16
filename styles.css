@@ -203,18 +203,24 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
 .pain { padding: 100px 24px 84px; background: var(--page-bg); }
 .pain-row { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
 @media (max-width: 820px) { .pain-row { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; } }
-.pain-item { text-align: center; padding: 0 16px; font-size: 0.85rem; color: var(--text-muted); letter-spacing: 0.01em; border-left: 1px solid var(--line-soft); }
+.pain-item { border-left: 1px solid var(--line-soft); }
 .pain-row .pain-item:first-child { border-left: none; }
-@media (max-width: 820px) { .pain-item { border-left: none; } }
-.pain-icon { width: 50px; height: 50px; margin: 0 auto 18px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold-dim); }
+@media (max-width: 820px) {
+  .pain-item { border-left: none; }
+  /* Centre the orphaned 5th item across both mobile columns */
+  .pain-row .pain-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
 
 /* ---------- Why choose (Home + About) ---------- */
 .why { background: var(--section-alt); padding: 100px 24px; }
-.why-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: repeat(6, 1fr); gap: 30px; text-align: center; }
+.why-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: repeat(6, 1fr); gap: 30px; }
 @media (max-width: 900px) { .why-grid { grid-template-columns: repeat(3, 1fr); gap: 40px 20px; } }
 @media (max-width: 560px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
-.why-item { font-size: 0.79rem; color: var(--text-muted); line-height: 1.45; letter-spacing: 0.01em; }
-.why-icon { width: 44px; height: 44px; margin: 0 auto 16px; color: var(--gold-dim); }
+
+/* Shared anatomy so the two icon rows read as one system */
+.pain-item, .why-item { text-align: center; padding: 0 16px; font-size: 0.85rem; line-height: 1.45; color: var(--text-muted); letter-spacing: 0.01em; }
+.pain-icon, .why-icon-badge { width: 50px; height: 50px; margin: 0 auto 18px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold-dim); }
+.why-icon { width: 22px; height: 22px; }
 
 /* ---------- Experience gallery ---------- */
 .experience { padding: 100px 24px; background: var(--page-bg); }
