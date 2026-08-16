@@ -90,8 +90,8 @@
       FORM BACKEND NOT YET CONNECTED.
       This form is a preview: on submit it shows the confirmation message but does
       NOT send anywhere. It is a fit-qualifier — besides name/email/phone it captures
-      "service" (Traditional / Versatile / Not sure / Something else), "goal", and
-      "timeline". When wiring the backend, pass ALL of those fields through so Danielle
+      "service" (Traditional / Versatile / Not sure / Something else), "goal",
+      "timeline", and "investment". When wiring the backend, pass ALL of those fields through so Danielle
       can screen leads. Recommended path (matches the toolkit): send submissions to
       MailerLite as a new subscriber with those answers stored as fields/tags, so ad
       leads land straight in her CRM. To deliver:
@@ -141,6 +141,16 @@
           <option value="As soon as possible">As soon as possible</option>
           <option value="Within the next month">Within the next month</option>
           <option value="Just exploring for now">Just exploring for now</option>
+        </select>
+      </div>
+      <div class="wl-field">
+        <label for="c-investment">Investment level <span style="text-transform:none;letter-spacing:0;color:var(--text-muted)">(optional)</span></label>
+        <select id="c-investment" name="investment">
+          <option value="" disabled selected>Choose one&hellip;</option>
+          <option value="Ready to invest in a premium, made-for-me service">Ready to invest in a premium, made-for-me service</option>
+          <option value="Comfortable — I'd like to review pricing in my consultation">Comfortable &mdash; I'd like to review pricing in my consultation</option>
+          <option value="Working within a set budget">Working within a set budget</option>
+          <option value="Prefer to discuss">Prefer to discuss</option>
         </select>
       </div>
       <div class="wl-field">
