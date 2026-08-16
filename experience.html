@@ -47,6 +47,18 @@
   ]
 }
 </script>
+<style>
+  .first-visit { max-width: var(--max); margin: 0 auto; padding: 48px 24px 12px; }
+  .fv-lead { text-align: center; max-width: 680px; margin: 0 auto; color: var(--text-muted); line-height: 1.65; }
+  .fv-steps { display: grid; gap: 18px; margin-top: 30px; }
+  @media (min-width: 760px) { .fv-steps { grid-template-columns: repeat(2, 1fr); gap: 22px; } }
+  .fv-step { display: flex; gap: 16px; padding: 22px 24px; background: var(--card-bg); border: 1px solid var(--line-soft); border-radius: 14px; }
+  .fv-num { flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-family: 'Fraunces', serif; font-weight: 600; color: var(--gold); border: 1px solid var(--line); }
+  .fv-step h3 { margin: 0 0 6px; font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.15rem; color: var(--text-main); }
+  .fv-step p { margin: 0; color: var(--text-muted); line-height: 1.6; }
+  .promise { max-width: 820px; margin: 34px auto 0; padding: 22px 26px; border-left: 3px solid var(--teal-accent); background: var(--section-alt); border-radius: 8px; color: var(--text-main); line-height: 1.6; }
+  .promise strong { color: var(--teal-accent); }
+</style>
 </head>
 <body>
 <header>
@@ -102,6 +114,21 @@
     <div class="why-item"><svg class="icon why-icon" viewBox="0 0 24 24"><path d="M5 19c8-1 12-6 13-14-8 1-12 6-13 14z"/><path d="M6 18c2-4 5-7 9-9"/></svg>Healthy Hair Comes First</div>
     <div class="why-item"><svg class="icon why-icon" viewBox="0 0 24 24"><path d="M12 3l1.6 4.8L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.2L12 3z"/><path d="M19 15l0.7 2 2 0.7-2 0.7-0.7 2-0.7-2-2-0.7 2-0.7z"/></svg>Natural-Looking Results</div>
   </div>
+</section>
+
+<section class="first-visit">
+  <div class="section-head">
+    <span class="eyebrow">Your First Visit</span>
+    <h2>What to <em>expect</em>, step by step</h2>
+  </div>
+  <p class="fv-lead">Danielle takes a limited number of new clients and gives each one her full attention. Here's how your first experience unfolds.</p>
+  <div class="fv-steps">
+    <div class="fv-step"><div class="fv-num">1</div><div><h3>Reach out</h3><p>Start with a short consultation request, or reserve directly. Danielle personally reviews every inquiry to make sure it's the right fit &mdash; for both of you.</p></div></div>
+    <div class="fv-step"><div class="fv-num">2</div><div><h3>Your consultation</h3><p>Together you talk through your hair, your goals, and the right install &mdash; Traditional or Versatile. No guesswork, and never any pressure.</p></div></div>
+    <div class="fv-step"><div class="fv-num">3</div><div><h3>Your private appointment</h3><p>One-on-one in the studio, or your home for select services. No waiting room, no crowd, no rush &mdash; just careful, focused work.</p></div></div>
+    <div class="fv-step"><div class="fv-num">4</div><div><h3>Aftercare &amp; rebooking</h3><p>You leave with guidance to keep your hair healthy, and a simple plan for when to return for maintenance.</p></div></div>
+  </div>
+  <p class="promise"><strong>Your privacy, protected.</strong> Your appointment and your details stay between you and Danielle &mdash; never shared or posted without your permission.</p>
 </section>
 <section class="final-cta">
   <div class="final-inner">
