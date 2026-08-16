@@ -4,4 +4,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.daricecorey.com/hws-preview/sitemap.xml
+Sitemap: https://www.hwsbydanni.com/sitemap.xml
