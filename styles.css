@@ -285,6 +285,12 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
 /* Photos fill their frame edge-to-edge on drop-in */
 .trans-frame img, .exp-frame img, .bio-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+/* Client clips sit in the same 3/4 frames as the photos. The source is 90:109,
+   so cover trims ~9% off the sides rather than cropping top or bottom, which is
+   where the hair is. Autoplay is opt-in via JS (viewport + reduced-motion gated);
+   without JS the poster shows and native controls appear. */
+.trans-frame video { width: 100%; height: 100%; object-fit: cover; display: block; background: #121110; }
+
 /* Empty photo slot — reads as an intentional "photo goes here", not a blank box */
 .ph-slot { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 18px; text-align: center; }
 .ph-slot::before { content: ""; position: absolute; inset: 16px; border: 1px dashed rgba(198, 154, 84, 0.32); transition: inset 0.6s var(--ease-out, ease), border-color 0.6s ease; }

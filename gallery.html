@@ -84,19 +84,23 @@
 </section>
 
 <section class="gallery-wrap" style="padding-top:20px;">
-  <!-- PLACEHOLDER GALLERY — waiting on Danielle's real transformation photos.
-       CLEAN SWAP: in each frame below, replace the whole
+  <!-- PARTLY FILLED — frame 1 is a real client clip; the rest await Danielle's photos.
+       CLEAN SWAP: in each remaining frame, replace the whole
          <span class="ph-slot">…</span>
        with an <img>, and it fills the frame automatically (object-fit: cover), e.g.:
-         <div class="trans-frame"><img src="transformation-01.jpg" alt="Client sew-in, finished look"></div>
-       Use photos Danielle has selected and has permission to feature.
+         <div class="trans-frame"><img src="transformation-02.jpg" alt="Client sew-in, finished look"></div>
+       For a video instead, copy the <video> block in frame 1 — it needs a poster
+       image and an H.264 (avc1) MP4. HEVC/H.265 will not play in Firefox or most
+       desktop Chrome, so re-encode phone footage before adding it.
+       Use media Danielle has selected and has permission to feature.
        Do not invent client photos or captions here. -->
   <div class="trans-grid">
     <div class="trans-frame">
-      <span class="ph-slot">
-        <svg class="ph-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-4.5L8 19"/></svg>
-        <em>Client Transformation</em>
-      </span>
+      <video class="trans-video" poster="transformation-01.jpg" preload="none"
+             muted loop playsinline data-autoplay
+             aria-label="Client transformation: honey blonde sew-in, finished look">
+        <source src="transformation-01.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="trans-frame">
       <span class="ph-slot">
@@ -129,7 +133,7 @@
       </span>
     </div>
   </div>
-  <p class="gallery-note">These frames are placeholders. Danielle's real client transformation photos (with permission to feature them) replace this grid directly in this page's HTML, no build step required.</p>
+  <p class="gallery-note">The remaining frames are placeholders. Danielle's client transformation photos (with permission to feature them) replace them directly in this page's HTML, no build step required.</p>
 </section>
 <section class="final-cta">
   <div class="final-inner">
@@ -180,5 +184,41 @@
     <div>&copy; 2026 Hair Weaving Solutions By Danielle. All Rights Reserved.</div>
   </div>
 </footer>
+<script>
+/* Client clips: play only while on screen, and only if the visitor has not asked
+   for reduced motion. Anyone we do not autoplay for gets native controls instead,
+   so the clip is never unreachable. preload="none" means the file is not fetched
+   until we actually start it. */
+(function () {
+  var vids = document.querySelectorAll('video[data-autoplay]');
+  if (!vids.length) return;
+
+  var reduceMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    for (var i = 0; i < vids.length; i++) {
+      vids[i].setAttribute('controls', '');
+      vids[i].setAttribute('preload', 'metadata');
+    }
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var v = entry.target;
+      if (entry.isIntersecting) {
+        var p = v.play();
+        // Autoplay can still be refused (iOS Low Power Mode, browser policy).
+        if (p && p.catch) p.catch(function () { v.setAttribute('controls', ''); });
+      } else if (!v.paused) {
+        v.pause();
+      }
+    });
+  }, { threshold: 0.35 });
+
+  for (var j = 0; j < vids.length; j++) io.observe(vids[j]);
+})();
+</script>
 </body>
 </html>
