@@ -109,6 +109,25 @@
         <input type="tel" id="wl-phone" name="phone" autocomplete="tel">
       </div>
       <div class="wl-field">
+        <label for="wl-state">Where Are You Based</label>
+        <select id="wl-state" name="state">
+          <option value="">Select a state&hellip;</option>
+          <option value="CT">Connecticut</option>
+          <option value="NY">New York</option>
+          <option value="Other">Somewhere else</option>
+        </select>
+      </div>
+      <div class="wl-field-2up">
+        <div class="wl-field">
+          <label for="wl-city">Town / City</label>
+          <input type="text" id="wl-city" name="city" autocomplete="address-level2">
+        </div>
+        <div class="wl-field">
+          <label for="wl-zip">ZIP</label>
+          <input type="text" id="wl-zip" name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="10">
+        </div>
+      </div>
+      <div class="wl-field">
         <label for="wl-service">Service Interested In</label>
         <select id="wl-service" name="service">
           <option value="">Select a service…</option>

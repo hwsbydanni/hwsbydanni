@@ -438,6 +438,11 @@ footer { background: var(--page-bg); padding: 76px 24px 40px; border-top: 1px so
 .wl-confirm.show { display: block; }
 .wl-confirm .mono { margin: 0 auto 20px; border-color: var(--gold); }
 .wl-confirm p { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.15rem; color: var(--text-main); line-height: 1.5; margin: 0; }
+/* Two fields on one row, so location doesn't add three full-height rows to an
+   already long form. Stacks below 420px where side-by-side gets cramped. */
+.wl-field-2up { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+@media (max-width: 420px) { .wl-field-2up { grid-template-columns: 1fr; gap: 0; } }
+
 /* Marketing opt-in. Unticked by default and never required — a pre-ticked box
    is not consent, and Formspree's MailerLite plugin keys off this exact field
    name (_optin), so the same markup works if the plugin is enabled later. */
