@@ -87,20 +87,14 @@
   <p class="contact-lead">Ready to book now? You can <a class="btn-text on-light" href="https://hwsbydanni.as.me" target="_blank" rel="noopener">reserve directly &rarr;</a> For everything else &mdash; consultations, questions, or home visits &mdash; share a few details below and Danielle will take it from there.</p>
   <div class="contact-card">
     <!--
-      FORM BACKEND NOT YET CONNECTED.
-      This form is a preview: on submit it shows the confirmation message but does
-      NOT send anywhere. It is a fit-qualifier — besides name/email/phone it captures
-      "service" (Traditional / Versatile / Not sure / Something else), "goal",
-      "timeline", and "investment". When wiring the backend, pass ALL of those fields through so Danielle
-      can screen leads. Recommended path (matches the toolkit): send submissions to
-      MailerLite as a new subscriber with those answers stored as fields/tags, so ad
-      leads land straight in her CRM. To deliver:
-        (a) mailto fallback: set the <form> to build an email to her address, or
-        (b) a form service / MailerLite form action: set action + method="POST"
-            and remove the preventDefault() in the script at the bottom.
-      Do not wire a specific account/address without Danielle/Darice's go-ahead.
+      Submissions post to Formspree, which emails them to the address configured
+      on that form. The handler at the bottom of this page posts by fetch so the
+      confirmation shows in place; every field below is sent, including service,
+      goal, timeline and investment, so Danielle can screen leads.
+      NOTE: reCAPTCHA must stay off for this Formspree form (or carry its own
+      key), otherwise the AJAX post is rejected.
     -->
-    <form id="contactForm" novalidate>
+    <form id="contactForm" action="https://formspree.io/f/mbgrppgg" method="POST" novalidate>
       <div class="wl-field">
         <label for="c-name">Name</label>
         <input type="text" id="c-name" name="name" autocomplete="name" required>
@@ -157,7 +151,13 @@
         <label for="c-message">Anything else about your hair? <span style="text-transform:none;letter-spacing:0;color:var(--text-muted)">(optional)</span></label>
         <textarea id="c-message" name="message"></textarea>
       </div>
+      <input type="hidden" name="_subject" value="New contact enquiry — hwsbydanni.com">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
       <button type="submit" class="btn-primary">Send to Danielle</button>
+      <p class="wl-error" id="contactError" role="alert">
+        Something went wrong sending your message. Please try again &mdash; or reserve directly at
+        <a href="https://hwsbydanni.as.me" target="_blank" rel="noopener">hwsbydanni.as.me</a>.
+      </p>
       <p class="wl-privacy">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
         Your details are private and go only to Danielle &mdash; never shared or posted.
@@ -168,7 +168,7 @@
       <p>Thank you &mdash; your message is on its way to Danielle, and she'll get back to you personally.</p>
     </div>
   </div>
-  <p class="contact-note">This is a preview of the contact form. Messages aren't switched on just yet &mdash; once they are, your note goes straight to Danielle and no one else.</p>
+  <p class="contact-note">Your note goes straight to Danielle and no one else, and she replies personally.</p>
 </section>
 <section class="final-cta">
   <div class="final-inner">
@@ -220,12 +220,16 @@
 </footer>
 
 <script>
-  // Preview-only handler: shows the confirmation without sending anywhere.
-  // See the comment above the form for how to connect a real backend.
+  // Posts to the Formspree endpoint on the <form> and shows the confirmation in
+  // place. On failure the form stays put and an error message is revealed, so a
+  // lost enquiry is never mistaken for a sent one.
   (function () {
     var form = document.getElementById('contactForm');
     var confirm = document.getElementById('contactConfirm');
+    var error = document.getElementById('contactError');
     if (!form) return;
+    var button = form.querySelector('button[type="submit"]');
+    var label = button.textContent;
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var name = document.getElementById('c-name');
@@ -233,9 +237,24 @@
       var service = document.getElementById('c-service');
       var firstEmpty = !name.value.trim() ? name : !email.value.trim() ? email : !service.value.trim() ? service : null;
       if (firstEmpty) { firstEmpty.focus(); return; }
-      form.style.display = 'none';
-      confirm.classList.add('show');
-      confirm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      error.classList.remove('show');
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (res) {
+        if (!res.ok) throw new Error('Formspree returned ' + res.status);
+        form.style.display = 'none';
+        confirm.classList.add('show');
+        confirm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })['catch'](function () {
+        button.disabled = false;
+        button.textContent = label;
+        error.classList.add('show');
+        error.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
     });
   })();
 </script>

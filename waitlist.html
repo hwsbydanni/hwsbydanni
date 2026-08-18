@@ -87,17 +87,13 @@
   <p class="waitlist-lead">Join the waitlist below and you'll be the first to know when a spot opens.</p>
   <div class="waitlist-card">
     <!--
-      FORM BACKEND NOT YET CONNECTED.
-      This form is a preview: on submit it shows the confirmation message but does
-      NOT send the entry anywhere. To collect real submissions, connect a form
-      service (Formspree is the natural fit for a static site) and:
-        1. set  action="https://formspree.io/f/{YOUR_FORM_ID}"  and  method="POST"
-           on the <form> below, and
-        2. remove the preventDefault() in the script at the bottom of this page
-           (or keep the AJAX handler and post to the endpoint).
-      Do not wire a specific Formspree account without Danielle/Darice's go-ahead.
+      Submissions post to Formspree, which emails them to the address configured
+      on that form. The handler at the bottom of this page posts by fetch so the
+      confirmation shows in place.
+      NOTE: reCAPTCHA must stay off for this Formspree form (or carry its own
+      key), otherwise the AJAX post is rejected.
     -->
-    <form id="waitlistForm" novalidate>
+    <form id="waitlistForm" action="https://formspree.io/f/mkjwpprw" method="POST" novalidate>
       <div class="wl-field">
         <label for="wl-name">Name</label>
         <input type="text" id="wl-name" name="name" autocomplete="name" required>
@@ -132,7 +128,13 @@
           <option>I'm flexible</option>
         </select>
       </div>
+      <input type="hidden" name="_subject" value="New waitlist sign-up — hwsbydanni.com">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
       <button type="submit" class="btn-primary">Join the Waitlist</button>
+      <p class="wl-error" id="wlError" role="alert">
+        Something went wrong adding you to the list. Please try again &mdash; or reserve directly at
+        <a href="https://hwsbydanni.as.me" target="_blank" rel="noopener">hwsbydanni.as.me</a>.
+      </p>
       <p class="wl-privacy">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
         Your details are private and go only to Danielle &mdash; never shared or posted.
@@ -143,7 +145,7 @@
       <p>You're on the list. I'll reach out personally as soon as a private appointment opens up.</p>
     </div>
   </div>
-  <p class="waitlist-note">This is a preview of the waitlist. Sign-ups aren't switched on just yet &mdash; once they are, your entry comes straight to Danielle and no one else.</p>
+  <p class="waitlist-note">Your entry comes straight to Danielle and no one else, and she'll reach out personally as a space opens.</p>
 </section>
 <section class="final-cta">
   <div class="final-inner">
@@ -195,12 +197,16 @@
 </footer>
 
 <script>
-  // Preview-only handler: shows the confirmation without sending anywhere.
-  // See the comment above the form for how to connect a real form backend.
+  // Posts to the Formspree endpoint on the <form> and shows the confirmation in
+  // place. On failure the form stays put and an error message is revealed, so a
+  // lost sign-up is never mistaken for a successful one.
   (function () {
     var form = document.getElementById('waitlistForm');
     var confirm = document.getElementById('wlConfirm');
+    var error = document.getElementById('wlError');
     if (!form) return;
+    var button = form.querySelector('button[type="submit"]');
+    var label = button.textContent;
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var name = document.getElementById('wl-name');
@@ -209,9 +215,24 @@
         (name.value.trim() ? email : name).focus();
         return;
       }
-      form.style.display = 'none';
-      confirm.classList.add('show');
-      confirm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      error.classList.remove('show');
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (res) {
+        if (!res.ok) throw new Error('Formspree returned ' + res.status);
+        form.style.display = 'none';
+        confirm.classList.add('show');
+        confirm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })['catch'](function () {
+        button.disabled = false;
+        button.textContent = label;
+        error.classList.add('show');
+        error.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
     });
   })();
 </script>
