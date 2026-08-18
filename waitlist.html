@@ -225,6 +225,40 @@
   // Posts to the Formspree endpoint on the <form> and shows the confirmation in
   // place. On failure the form stays put and an error message is revealed, so a
   // lost sign-up is never mistaken for a successful one.
+  //
+  // If the visitor ticked the opt-in box, the entry is ALSO sent to MailerLite,
+  // which puts them in the group that form is bound to. Two things to know:
+  //
+  //  - It is fire-and-forget. MailerLite's /jsonp/ endpoint is meant for a plain
+  //    form POST, not a cross-origin fetch, so the request goes as no-cors and
+  //    the browser will not let us read the reply. A rejection is invisible.
+  //    Formspree stays the source of truth; the confirmation the visitor sees
+  //    reflects the Formspree result only, never this.
+  //  - MailerLite derives field keys from field names, and "Zip" became z_i_p in
+  //    that account. ML_FIELDS maps our names onto theirs; check it against the
+  //    form's embed HTML if a field ever arrives empty.
+  (function () {
+    var ML_ENDPOINT = 'https://assets.mailerlite.com/jsonp/2580271/forms/196184932835394586/subscribe';
+    var ML_FIELDS = {
+      email: 'email', name: 'name', phone: 'phone',
+      service: 'service', timeframe: 'timeframe',
+      city: 'city', state: 'state', zip: 'z_i_p'
+    };
+    window.hwsSubscribe = function (form) {
+      if (!ML_ENDPOINT) return;
+      if (!form.querySelector('input[name="_optin"]:checked')) return;
+      var src = new FormData(form), out = new FormData(), sent = false;
+      Object.keys(ML_FIELDS).forEach(function (k) {
+        var v = src.get(k);
+        if (v) { out.append('fields[' + ML_FIELDS[k] + ']', v); sent = true; }
+      });
+      if (!sent) return;
+      out.append('ml-submit', '1');
+      out.append('anticsrf', 'true');
+      fetch(ML_ENDPOINT, { method: 'POST', mode: 'no-cors', body: out })['catch'](function () {});
+    };
+  })();
+
   (function () {
     var form = document.getElementById('waitlistForm');
     var confirm = document.getElementById('wlConfirm');
@@ -249,6 +283,9 @@
         headers: { 'Accept': 'application/json' }
       }).then(function (res) {
         if (!res.ok) throw new Error('Formspree returned ' + res.status);
+        // Only after Formspree accepted it — a failed sign-up the visitor will
+        // retry must not leave a half-added subscriber behind.
+        window.hwsSubscribe(form);
         form.style.display = 'none';
         confirm.classList.add('show');
         confirm.scrollIntoView({ behavior: 'smooth', block: 'center' });

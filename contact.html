@@ -248,6 +248,37 @@
   // Posts to the Formspree endpoint on the <form> and shows the confirmation in
   // place. On failure the form stays put and an error message is revealed, so a
   // lost enquiry is never mistaken for a sent one.
+  //
+  // MailerLite handoff: see the long note in waitlist.html for how this works
+  // and why it is fire-and-forget.
+  //
+  // Every key on the right below must exist on that MailerLite form, or the
+  // value is dropped. MailerLite derives keys from field names and does not
+  // always do it predictably — "Zip" became z_i_p — so if a field arrives
+  // empty, check the form's embed HTML for the real name="fields[...]" value
+  // rather than assuming it matches ours.
+  (function () {
+    var ML_ENDPOINT = 'https://assets.mailerlite.com/jsonp/2580271/forms/196183675070580331/subscribe';
+    var ML_FIELDS = {
+      email: 'email', name: 'name', phone: 'phone',
+      service: 'service', goal: 'goal', timeline: 'timeline', investment: 'investment',
+      city: 'city', state: 'state', zip: 'z_i_p'
+    };
+    window.hwsSubscribe = function (form) {
+      if (!ML_ENDPOINT) return;
+      if (!form.querySelector('input[name="_optin"]:checked')) return;
+      var src = new FormData(form), out = new FormData(), sent = false;
+      Object.keys(ML_FIELDS).forEach(function (k) {
+        var v = src.get(k);
+        if (v) { out.append('fields[' + ML_FIELDS[k] + ']', v); sent = true; }
+      });
+      if (!sent) return;
+      out.append('ml-submit', '1');
+      out.append('anticsrf', 'true');
+      fetch(ML_ENDPOINT, { method: 'POST', mode: 'no-cors', body: out })['catch'](function () {});
+    };
+  })();
+
   (function () {
     var form = document.getElementById('contactForm');
     var confirm = document.getElementById('contactConfirm');
@@ -271,6 +302,9 @@
         headers: { 'Accept': 'application/json' }
       }).then(function (res) {
         if (!res.ok) throw new Error('Formspree returned ' + res.status);
+        // Only after Formspree accepted it — a failed enquiry the visitor will
+        // retry must not leave a half-added subscriber behind.
+        window.hwsSubscribe(form);
         form.style.display = 'none';
         confirm.classList.add('show');
         confirm.scrollIntoView({ behavior: 'smooth', block: 'center' });
