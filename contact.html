@@ -91,8 +91,10 @@
       on that form. The handler at the bottom of this page posts by fetch so the
       confirmation shows in place; every field below is sent, including service,
       goal, timeline and investment, so Danielle can screen leads.
-      NOTE: reCAPTCHA must stay off for this Formspree form (or carry its own
-      key), otherwise the AJAX post is rejected.
+      Formspree settings this depends on: reCAPTCHA off (or carrying its own
+      key), or the AJAX post is rejected; and note that Formshield, their spam
+      filter, will silently withhold submissions it judges spammy — test
+      submissions with placeholder text are exactly what it catches.
     -->
     <form id="contactForm" action="https://formspree.io/f/mbgrppgg" method="POST" novalidate>
       <div class="wl-field">
@@ -151,6 +153,10 @@
         <label for="c-message">Anything else about your hair? <span style="text-transform:none;letter-spacing:0;color:var(--text-muted)">(optional)</span></label>
         <textarea id="c-message" name="message"></textarea>
       </div>
+      <label class="wl-optin" for="c-optin">
+        <input type="checkbox" id="c-optin" name="_optin" value="yes">
+        <span>Email me occasional studio updates and appointment openings. (Optional &mdash; leave this unticked and Danielle will simply reply to you directly.)</span>
+      </label>
       <input type="hidden" name="_subject" value="New contact enquiry — hwsbydanni.com">
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
       <button type="submit" class="btn-primary">Send to Danielle</button>
@@ -160,7 +166,7 @@
       </p>
       <p class="wl-privacy">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
-        Your details are private and go only to Danielle &mdash; never shared or posted.
+        Your details go to Danielle &mdash; never sold, never posted. Tick the box above and she&rsquo;ll also add you to her studio list; leave it and she won&rsquo;t.
       </p>
     </form>
     <div class="wl-confirm" id="contactConfirm" role="status" aria-live="polite">

@@ -90,8 +90,10 @@
       Submissions post to Formspree, which emails them to the address configured
       on that form. The handler at the bottom of this page posts by fetch so the
       confirmation shows in place.
-      NOTE: reCAPTCHA must stay off for this Formspree form (or carry its own
-      key), otherwise the AJAX post is rejected.
+      Formspree settings this depends on: reCAPTCHA off (or carrying its own
+      key), or the AJAX post is rejected; and note that Formshield, their spam
+      filter, will silently withhold submissions it judges spammy — test
+      submissions with placeholder text are exactly what it catches.
     -->
     <form id="waitlistForm" action="https://formspree.io/f/mkjwpprw" method="POST" novalidate>
       <div class="wl-field">
@@ -128,6 +130,10 @@
           <option>I'm flexible</option>
         </select>
       </div>
+      <label class="wl-optin" for="wl-optin">
+        <input type="checkbox" id="wl-optin" name="_optin" value="yes">
+        <span>Email me occasional studio updates and appointment openings. (Optional &mdash; you&rsquo;ll hear about your waitlist place either way.)</span>
+      </label>
       <input type="hidden" name="_subject" value="New waitlist sign-up — hwsbydanni.com">
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
       <button type="submit" class="btn-primary">Join the Waitlist</button>
@@ -137,7 +143,7 @@
       </p>
       <p class="wl-privacy">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
-        Your details are private and go only to Danielle &mdash; never shared or posted.
+        Your details go to Danielle &mdash; never sold, never posted. Tick the box above and she&rsquo;ll also add you to her studio list; leave it and she won&rsquo;t.
       </p>
     </form>
     <div class="wl-confirm" id="wlConfirm" role="status" aria-live="polite">

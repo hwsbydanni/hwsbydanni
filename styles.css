@@ -438,6 +438,12 @@ footer { background: var(--page-bg); padding: 76px 24px 40px; border-top: 1px so
 .wl-confirm.show { display: block; }
 .wl-confirm .mono { margin: 0 auto 20px; border-color: var(--gold); }
 .wl-confirm p { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.15rem; color: var(--text-main); line-height: 1.5; margin: 0; }
+/* Marketing opt-in. Unticked by default and never required — a pre-ticked box
+   is not consent, and Formspree's MailerLite plugin keys off this exact field
+   name (_optin), so the same markup works if the plugin is enabled later. */
+.wl-optin { display: flex; align-items: flex-start; gap: 11px; margin: 22px 0 4px; cursor: pointer; }
+.wl-optin input { flex: 0 0 auto; width: 17px; height: 17px; margin: 2px 0 0; accent-color: var(--gold); cursor: pointer; }
+.wl-optin span { font-size: 0.82rem; line-height: 1.5; color: var(--text-muted); }
 .wl-error { display: none; margin: 16px 0 0; padding: 12px 15px; border-left: 3px solid #C0563B; background: var(--section-alt); font-size: 0.84rem; color: var(--text-main); line-height: 1.5; border-radius: 6px; }
 .wl-error.show { display: block; }
 .wl-privacy { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 16px 0 0; font-size: 0.76rem; color: var(--text-muted); text-align: center; line-height: 1.4; }
