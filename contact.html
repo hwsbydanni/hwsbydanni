@@ -268,7 +268,7 @@
     window.hwsSubscribe = function (form) {
       if (!ML_ENDPOINT) return;
       if (!form.querySelector('input[name="_optin"]:checked')) return;
-      var src = new FormData(form), out = new FormData(), sent = false;
+      var src = new FormData(form), out = new URLSearchParams(), sent = false;
       Object.keys(ML_FIELDS).forEach(function (k) {
         var v = src.get(k);
         if (v) { out.append('fields[' + ML_FIELDS[k] + ']', v); sent = true; }
@@ -276,6 +276,12 @@
       if (!sent) return;
       out.append('ml-submit', '1');
       out.append('anticsrf', 'true');
+      // URLSearchParams, not FormData: this sends application/x-www-form-urlencoded,
+      // which is what MailerLite's own <form method="post"> produces. FormData would
+      // send multipart/form-data, and if their endpoint only parses urlencoded the
+      // body is ignored and the subscriber is never created — invisibly, because the
+      // response to a no-cors request cannot be read. Both encodings are CORS-safelisted,
+      // so this stays a simple request either way.
       fetch(ML_ENDPOINT, { method: 'POST', mode: 'no-cors', body: out })['catch'](function () {});
     };
   })();
