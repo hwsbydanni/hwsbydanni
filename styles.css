@@ -30,6 +30,9 @@
   --line-soft: rgba(198, 154, 84, 0.16);
   /* Teal accent, readable on light surfaces (deeper than the hero teal) */
   --teal-accent: #3C8074;
+  /* In-prose links: a shade deeper than the accent so body-copy links clear
+     WCAG AA (4.86:1 on --section-alt); the accent itself lands at 4.26:1. */
+  --link: #37766B;
 }
 
 /* ---------- Dark theme ---------- */
@@ -43,6 +46,7 @@
   --line-soft: rgba(198, 154, 84, 0.18);
   /* On dark, the accent is the bright hero teal */
   --teal-accent: #63B7AB;
+  --link: #63B7AB;
 }
 
 * { box-sizing: border-box; }
@@ -461,3 +465,16 @@ footer { background: var(--page-bg); padding: 76px 24px 40px; border-top: 1px so
 .wl-privacy { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 16px 0 0; font-size: 0.76rem; color: var(--text-muted); text-align: center; line-height: 1.4; }
 .wl-privacy svg { width: 14px; height: 14px; stroke: var(--teal-accent); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 .waitlist-note, .contact-note { max-width: 620px; margin: 30px auto 0; text-align: center; font-size: 0.82rem; color: var(--text-muted); padding: 0 8px; }
+
+/* ---------- Contextual links inside body copy ----------
+   Nav, footer and button links are styled on their own. These are the links
+   that sit inside a sentence: they keep the browser underline for a non-colour
+   affordance and take the brand tint so they read as clickable, not decorative.
+   .page-banner sits on a dark surface, so it takes the gold instead. */
+.policy-item p a, .faq-item p a, .bio-copy p a, .waitlist-lead a, .referral-lead a {
+  color: var(--link); text-underline-offset: 3px; transition: color 0.25s ease;
+}
+.policy-item p a:hover, .faq-item p a:hover, .bio-copy p a:hover,
+.waitlist-lead a:hover, .referral-lead a:hover { color: var(--gold); }
+.page-banner p a { color: var(--gold-soft); text-underline-offset: 3px; transition: color 0.25s ease; }
+.page-banner p a:hover { color: var(--gold); }
