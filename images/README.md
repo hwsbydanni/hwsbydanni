@@ -17,14 +17,14 @@ story post, so permission for one is not permission for the other.
 
 ## Wiring a photo into a page
 
-Nothing is displayed just by living in this folder. In `gallery.html` or
-`index.html`, replace a frame's placeholder span:
+Nothing is displayed just by living in this folder. In `gallery.html` or `index.html`, copy an existing frame inside
+`.trans-grid` and point it at your file. The image fills the frame
+automatically:
 
-    <span class="ph-slot">...</span>
+    <div class="trans-frame"><img src="images/transformation-02.jpg"
+         alt="Describe what is in the photo" loading="lazy" decoding="async"></div>
 
-with an image, and it fills the frame automatically:
-
-    <img src="images/transformation-02.jpg" alt="Describe what is in the photo">
+Keep `loading="lazy"` on anything below the first row.
 
 Alt text should describe the actual hair in the photo (length, part, finish),
 not repeat a generic label. Never add a client's name.

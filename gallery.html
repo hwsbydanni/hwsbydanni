@@ -84,16 +84,12 @@
 </section>
 
 <section class="gallery-wrap" style="padding-top:20px;">
-  <!-- PARTLY FILLED — frame 1 is a real client clip; the rest await Danielle's photos.
-       CLEAN SWAP: in each remaining frame, replace the whole
-         <span class="ph-slot">…</span>
-       with an <img>, and it fills the frame automatically (object-fit: cover), e.g.:
-         <div class="trans-frame"><img src="transformation-02.jpg" alt="Client sew-in, finished look"></div>
-       For a video instead, copy the <video> block in frame 1 — it needs a poster
-       image and an H.264 (avc1) MP4. HEVC/H.265 will not play in Firefox or most
-       desktop Chrome, so re-encode phone footage before adding it.
-       Use media Danielle has selected and has permission to feature.
-       Do not invent client photos or captions here. -->
+  <!-- Frame 1 is a client clip; the rest are client photos, all featured with
+       permission. To add more, copy a frame and point it at a file in images/.
+       Write alt text that describes the hair in that photo. Never add a client
+       name. For video, copy the <video> block below: it needs a poster image
+       and an H.264 (avc1) MP4, since HEVC will not play in Firefox or most
+       desktop Chrome. -->
   <div class="trans-grid">
     <div class="trans-frame">
       <video class="trans-video" poster="transformation-01.jpg" preload="none"
@@ -102,38 +98,18 @@
         <source src="transformation-01.mp4" type="video/mp4">
       </video>
     </div>
-    <div class="trans-frame">
-      <span class="ph-slot">
-        <svg class="ph-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-4.5L8 19"/></svg>
-        <em>Client Transformation</em>
-      </span>
-    </div>
-    <div class="trans-frame">
-      <span class="ph-slot">
-        <svg class="ph-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-4.5L8 19"/></svg>
-        <em>Client Transformation</em>
-      </span>
-    </div>
-    <div class="trans-frame">
-      <span class="ph-slot">
-        <svg class="ph-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-4.5L8 19"/></svg>
-        <em>Client Transformation</em>
-      </span>
-    </div>
-    <div class="trans-frame">
-      <span class="ph-slot">
-        <svg class="ph-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-4.5L8 19"/></svg>
-        <em>Client Transformation</em>
-      </span>
-    </div>
-    <div class="trans-frame">
-      <span class="ph-slot">
-        <svg class="ph-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-4.5L8 19"/></svg>
-        <em>Client Transformation</em>
-      </span>
-    </div>
+    <div class="trans-frame"><img src="images/transformation-12.jpg" alt="Client sew-in with a center part and soft curled ends at shoulder length"></div>
+    <div class="trans-frame"><img src="images/transformation-11.jpg" alt="Client sew-in with a center part and very long straight length"></div>
+    <div class="trans-frame"><img src="images/transformation-07.jpg" alt="Client sew-in styled into a sleek high bun, shown in profile with laid edges" loading="lazy" decoding="async"></div>
+    <div class="trans-frame"><img src="images/transformation-01.jpg" alt="Client sew-in with a deep side part and long loose curls swept over one shoulder" loading="lazy" decoding="async"></div>
+    <div class="trans-frame"><img src="images/transformation-04.jpg" alt="Client sleek angled bob sew-in with a side part and a glossy straight finish" loading="lazy" decoding="async"></div>
+    <div class="trans-frame"><img src="images/transformation-09.jpg" alt="Client sew-in styled into a sleek high ponytail with a side-swept bang and laid edges" loading="lazy" decoding="async"></div>
+    <div class="trans-frame"><img src="images/transformation-02.jpg" alt="Client sew-in with a side part and long soft waves falling over one shoulder" loading="lazy" decoding="async"></div>
+    <div class="trans-frame"><img src="images/transformation-03.jpg" alt="Side profile of a sleek jaw-length bob sew-in with a deep side part and laid edges" loading="lazy" decoding="async"></div>
+    <div class="trans-frame"><img src="images/transformation-06.jpg" alt="Client sew-in with a side part and full soft curls at shoulder length" loading="lazy" decoding="async"></div>
+    <div class="trans-frame"><img src="images/transformation-05.jpg" alt="Client sew-in seen from the side, showing soft curls through the back and a smooth blend at the crown" loading="lazy" decoding="async"></div>
+    <div class="trans-frame"><img src="images/transformation-10.jpg" alt="Client with a long blonde install finished in soft curls" loading="lazy" decoding="async"></div>
   </div>
-  <p class="gallery-note">The remaining frames are placeholders. Danielle's client transformation photos (with permission to feature them) replace them directly in this page's HTML, no build step required.</p>
 </section>
 
 <section class="follow-cta">
