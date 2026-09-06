@@ -1,5 +1,5 @@
 /* ==========================================================================
-   HWS by Danielle — Shared Stylesheet
+   HWS by Danni — Shared Stylesheet
    Used by every page. Edit this one file to change fonts, colors, or spacing
    site-wide.
    ========================================================================== */
@@ -288,13 +288,13 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
 
 /* ==========================================================================
    Content-ready placeholder structures
-   These three sections (About bio, Reviews, Gallery) are waiting on Danielle's
+   These three sections (About bio, Reviews, Gallery) are waiting on Danni's
    real words and photos. The structure below is built so real content is a
    clean drop-in, not a redesign:
      - Gallery/Experience: replace a frame's <span class="ph-slot">…</span> with
        <img src="…" alt="…"> and the photo fills the frame automatically.
      - Reviews: replace the quote text and name; the card design stays.
-     - About: replace the bracketed prompt lines with Danielle's paragraphs.
+     - About: replace the bracketed prompt lines with Danni's paragraphs.
    ========================================================================== */
 
 /* Photos fill their frame edge-to-edge on drop-in */

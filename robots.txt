@@ -1,4 +1,4 @@
-# HWS by Danielle
+# HWS by Danni
 # Note: crawlers only read robots.txt from a domain root (e.g. example.com/robots.txt),
 # so this file becomes fully effective once the site lives at its own domain root.
 User-agent: *

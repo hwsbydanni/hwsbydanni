@@ -1,4 +1,4 @@
-// HWS by Danielle — shared light/dark theme toggle. Loaded on every page.
+// HWS by Danni — shared light/dark theme toggle. Loaded on every page.
 (function () {
   var root = document.documentElement;
   var stored = localStorage.getItem('hws-theme');

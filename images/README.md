@@ -11,7 +11,7 @@ file stays the source.
 
 ## Before anything goes live
 
-Every photo needs Danielle's confirmation that the client agreed to be
+Every photo needs Danni's confirmation that the client agreed to be
 featured publicly. A public gallery on the site is a larger step than a
 story post, so permission for one is not permission for the other.
 

@@ -1,5 +1,5 @@
 // ==========================================================================
-// HWS by Danielle — Motion controller
+// HWS by Danni — Motion controller
 // --------------------------------------------------------------------------
 // Adds the scroll-reveal behavior for motion.css. Purely additive and
 // progressive: if this file never runs, motion.css does nothing (its rules are
