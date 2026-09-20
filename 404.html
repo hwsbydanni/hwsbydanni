@@ -101,5 +101,21 @@
     <div>&copy; 2026 Hair Weaving Solutions By Danni. All Rights Reserved. <span class="foot-credit">Site by <a href="https://daricecorey.com" target="_blank" rel="noopener">Darice Corey</a></span></div>
   </div>
 </footer>
+<!-- Wonderchat assistant. The vendor snippet appends to document.body, so it has
+     to sit inside the body rather than in <head>, where document.body is still null. -->
+<script>
+(function () {
+  window.wonderchatSettings = {
+    id: "cmua1j3hsn5ly45pxjpq3wdie",
+    address: "app.wonderchat.io",
+    widgetSize: "normal",
+    widgetButtonSize: "normal"
+  };
+  var s = document.createElement("script");
+  s.src = "https://app.wonderchat.io/scripts/wonderchat-seo.js";
+  s.defer = true;
+  document.body.appendChild(s);
+})();
+</script>
 </body>
 </html>
