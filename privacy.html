@@ -53,7 +53,8 @@
   NOTE FOR DANIELLE / DARICE: This is a plain-language privacy policy written to match how the
   site actually works today (contact/waitlist forms, Google Analytics, Acuity booking, social ads).
   Review it for accuracy and add a dedicated privacy email if you want one (search "Contact page"
-  below). If you later add a Meta/Facebook pixel or wire MailerLite, update the relevant sections.
+  below). MailerLite and the Wonderchat assistant are both live and covered above; if you
+  later add a Meta/Facebook pixel, update the relevant sections.
   It is a solid general template, not legal advice — consider a quick review if you want certainty.
 -->
 <header>
@@ -102,6 +103,7 @@
       <h2>Information We Collect</h2>
       <p><strong>Information you give us.</strong> When you use our contact or waitlist forms, or book an appointment, you may provide your name, email address, phone number, and details about your hair, goals, and timeline. You provide this voluntarily so we can respond and serve you.</p>
       <p><strong>Information collected automatically.</strong> Like most websites, we collect basic usage data such as pages viewed, general location, device and browser type, and how you found the site. This is collected through analytics tools (see "Cookies &amp; Analytics" below).</p>
+      <p><strong>Information you send through the chat assistant.</strong> The site has a chat assistant so you can ask a question without filling in a form. What you type into it is processed by the third-party service that powers it, so please don't send anything through the chat you wouldn't want handled outside the studio. For anything sensitive, use the <a href="contact.html">contact form</a> or book a consultation, which come straight to Danielle.</p>
     </div>
 
     <div class="policy-item">
@@ -121,7 +123,7 @@
 
     <div class="policy-item">
       <h2>How We Share Information</h2>
-      <p>We do not sell or rent your personal information. We share it only as needed to run our business — for example, with trusted service providers who help us operate, such as our scheduling tool (Acuity Scheduling), our website host, our analytics provider, and, if you opt in to updates, our email service provider. These providers may only use your information to perform services for us. We may also disclose information if required by law.</p>
+      <p>We do not sell or rent your personal information. We share it only as needed to run our business — for example, with trusted service providers who help us operate, such as our scheduling tool (Acuity Scheduling), our website host, our analytics provider, the provider that powers the chat assistant, and, if you opt in to updates, our email service provider. These providers may only use your information to perform services for us. We may also disclose information if required by law.</p>
     </div>
 
     <div class="policy-item">
@@ -201,5 +203,21 @@
     <div>&copy; 2026 Hair Weaving Solutions By Danni. All Rights Reserved. <span class="foot-credit">Site by <a href="https://daricecorey.com" target="_blank" rel="noopener">Darice Corey</a></span></div>
   </div>
 </footer>
+<!-- Wonderchat assistant. The vendor snippet appends to document.body, so it has
+     to sit inside the body rather than in <head>, where document.body is still null. -->
+<script>
+(function () {
+  window.wonderchatSettings = {
+    id: "cmua1j3hsn5ly45pxjpq3wdie",
+    address: "app.wonderchat.io",
+    widgetSize: "normal",
+    widgetButtonSize: "normal"
+  };
+  var s = document.createElement("script");
+  s.src = "https://app.wonderchat.io/scripts/wonderchat-seo.js";
+  s.defer = true;
+  document.body.appendChild(s);
+})();
+</script>
 </body>
 </html>
