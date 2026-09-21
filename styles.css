@@ -372,6 +372,12 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
 .bio-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block; }
 .bio-copy h2 { font-size: clamp(1.6rem, 2.8vw, 2.1rem); margin-bottom: 20px; }
 .bio-copy p { font-size: 0.96rem; color: var(--text-muted); margin: 0 0 18px; line-height: 1.75; }
+/* Text-only variant of the bio block, for pages with no photography of their
+   own yet. Keeps the same rhythm as the two-column version. */
+.bio-grid.bio-single { grid-template-columns: 1fr; }
+.bio-grid.bio-single .bio-copy { max-width: 760px; margin: 0 auto; }
+.bio-copy ul { margin: 0 0 18px; padding-left: 20px; color: var(--text-muted); font-size: 0.96rem; line-height: 1.75; }
+.bio-copy ul li { margin-bottom: 8px; }
 .bio-copy .placeholder-note { font-size: 0.78rem; color: var(--gold-dim); font-style: italic; margin-top: 28px; padding-top: 20px; border-top: 1px dashed var(--line); }
 
 /* ---------- Final CTA (every page, always brand-dark) ---------- */
