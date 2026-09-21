@@ -47,6 +47,7 @@
     --ivory: #F4EFE6;
     --muted: #A79E92;         /* muted text that always sits on a dark surface */
     --max: 1160px;
+    --link: #37766B;        /* in-prose/card links: AA on --paper-dim; --teal-accent is only 4.26:1 */
 
     /* --- Themeable: light (default). Genuinely white, matching the rest of the site --- */
     --paper: #FFFFFF;         /* page background */
@@ -60,6 +61,7 @@
 
   /* --- Themeable: dark. The three brand-dark sections stay dark regardless. --- */
   [data-theme="dark"] {
+    --link: #63B7AB;
     --paper: #121213;
     --paper-dim: #1B1B1D;
     --ink: #F4EFE6;
@@ -305,6 +307,26 @@
   .foot-nav { display: flex; gap: 22px; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
   .foot-nav a { text-decoration: none; color: var(--muted-dark); transition: color 0.25s ease; }
   .foot-nav a:hover { color: var(--gold-dim); }
+
+  /* ---------- Ways to book ----------
+     index.html carries its own stylesheet rather than linking styles.css, so
+     this block is written against the homepage's own tokens (--paper-dim,
+     --ink, --muted-dark) and does not depend on the shared .tier-card rules. */
+  .book-ways { padding: 90px 24px 100px; background: var(--paper); }
+  .book-ways .tier-lead { max-width: 640px; margin: -8px auto 32px; text-align: center;
+    font-size: 0.95rem; color: var(--muted-dark); padding: 0 24px; }
+  .book-grid { max-width: var(--max); margin: 0 auto; display: grid;
+    grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  @media (max-width: 980px) { .book-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .book-grid { grid-template-columns: 1fr; } }
+  .book-ways .tier-card { background: var(--paper-dim); padding: 40px;
+    border: 1px solid var(--line-soft); display: flex; flex-direction: column; }
+  .book-ways .tier-card h3 { font-family: 'Fraunces', serif; font-weight: 450;
+    font-size: 1.05rem; letter-spacing: 0.03em; margin: 0 0 12px; color: var(--ink); }
+  .book-ways .tier-card p { font-size: 0.9rem; color: var(--muted-dark); margin: 0; }
+  .book-ways .card-go { margin-top: auto; padding-top: 20px; align-self: flex-start;
+    color: var(--link); border-bottom: 1px solid var(--link); text-decoration: none;
+    font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 4px; }
 </style>
 <link rel="stylesheet" href="motion.css">
 <script src="theme.js"></script>
@@ -550,6 +572,46 @@
       <a class="btn-primary" href="https://hwsbydanni.as.me" target="_blank" rel="noopener">Choose Versatile Sew-In</a>
       <a class="btn-text on-light" href="versatile-sew-in.html" style="align-self:flex-start;margin-top:16px;">How the Versatile sew-in works &rarr;</a>
     </div>
+  </div>
+</section>
+
+<section class="tiers book-ways" id="book">
+  <div class="section-head">
+    <span class="eyebrow">Ways to Book</span>
+    <h2>Every service, <em>one</em> place</h2>
+  </div>
+  <p class="tier-lead">Each one opens the matching service on Danni&rsquo;s booking page, ready to reserve.</p>
+  <div class="tier-grid book-grid">
+      <div class="tier-card">
+        <h3>Luxury Installs</h3>
+        <p>Traditional and Versatile sew-ins, installed one-on-one in the private studio.</p>
+        <a class="btn-text on-light card-go" href="https://hwsbydanni.as.me/" target="_blank" rel="noopener">Book this &rarr;</a>
+      </div>
+      <div class="tier-card">
+        <h3>New Clients: Start Here</h3>
+        <p>A consultation to talk through your hair, your goals and which sew-in fits, before anything is booked.</p>
+        <a class="btn-text on-light card-go" href="https://hwsbydanni.as.me/?appointmentType=17535350" target="_blank" rel="noopener">Book this &rarr;</a>
+      </div>
+      <div class="tier-card">
+        <h3>Bridal &amp; Special Occasion</h3>
+        <p>Private styling for weddings and special events, in the studio or on location.</p>
+        <a class="btn-text on-light card-go" href="https://hwsbydanni.as.me/?appointmentType=category:Bridal%20Hair" target="_blank" rel="noopener">Book this &rarr;</a>
+      </div>
+      <div class="tier-card">
+        <h3>Traveling Services</h3>
+        <p>On-location installs for clients who would rather Danni came to them.</p>
+        <a class="btn-text on-light card-go" href="https://hwsbydanni.as.me/?appointmentType=category:Traveling%20Hair%20Stylists%20" target="_blank" rel="noopener">Book this &rarr;</a>
+      </div>
+      <div class="tier-card">
+        <h3>Stylist Education &amp; Training</h3>
+        <p>Classes for stylists who want to learn Danni&rsquo;s sew-in technique.</p>
+        <a class="btn-text on-light card-go" href="https://hwsbydanni.as.me/?appointmentType=category:Classes" target="_blank" rel="noopener">Book this &rarr;</a>
+      </div>
+      <div class="tier-card">
+        <h3>Recommended Hair</h3>
+        <p>Danni&rsquo;s trusted hair vendors, arranged through the booking page.</p>
+        <a class="btn-text on-light card-go" href="https://hwsbydanni.as.me/?appointmentType=74048948" target="_blank" rel="noopener">Book this &rarr;</a>
+      </div>
   </div>
 </section>
 
