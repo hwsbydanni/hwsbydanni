@@ -491,3 +491,63 @@ footer { background: var(--page-bg); padding: 76px 24px 40px; border-top: 1px so
 .waitlist-lead a:hover, .referral-lead a:hover { color: var(--gold); }
 .page-banner p a { color: var(--gold-soft); text-underline-offset: 3px; transition: color 0.25s ease; }
 .page-banner p a:hover { color: var(--gold); }
+
+/* ---------- Service menu ----------
+   Compact tap-to-expand rows. Built for a phone: the whole category is
+   scannable in a few thumb-lengths, and the description only appears when
+   someone actually wants it. Price and duration stay visible while collapsed,
+   because those are the two questions everyone has first. */
+.svc-list { max-width: 760px; margin: 0 auto; }
+.svc { border-bottom: 1px solid var(--line-soft); }
+.svc:first-child { border-top: 1px solid var(--line-soft); }
+.svc > summary {
+  list-style: none; cursor: pointer; display: flex; align-items: baseline;
+  gap: 14px; padding: 18px 2px; transition: background 0.2s ease;
+}
+.svc > summary::-webkit-details-marker { display: none; }
+.svc > summary:hover { background: var(--section-alt); }
+.svc-name { font-family: 'Fraunces', serif; font-size: 1rem; line-height: 1.35; color: var(--text-main); flex: 1; }
+.svc-meta { display: flex; align-items: baseline; gap: 12px; white-space: nowrap; }
+.svc-time { font-family: 'Inter', sans-serif; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+.svc-price { font-family: 'Fraunces', serif; font-size: 1.02rem; color: var(--gold-dim); }
+[data-theme="dark"] .svc-price { color: var(--gold-soft); }
+.svc-plus { font-family: 'Inter', sans-serif; color: var(--gold); font-size: 1.1rem; line-height: 1; width: 12px; text-align: center; flex-shrink: 0; }
+.svc[open] .svc-plus { transform: rotate(45deg); }
+.svc-plus { transition: transform 0.25s ease; display: inline-block; }
+.svc-body { padding: 0 2px 22px; }
+.svc-body p { font-size: 0.9rem; line-height: 1.7; color: var(--text-muted); margin: 0 0 16px; }
+.svc-book {
+  display: inline-block; background: var(--gold); color: var(--brand-ink);
+  text-decoration: none; padding: 11px 22px; font-family: 'Inter', sans-serif;
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
+  transition: background 0.3s ease;
+}
+.svc-book:hover { background: var(--gold-soft); }
+
+/* Jump bar: lets a phone user reach any category without scrolling past it */
+.jump { position: sticky; top: 64px; z-index: 40; background: var(--page-bg);
+  border-bottom: 1px solid var(--line-soft); padding: 12px 0; margin-bottom: 8px; }
+.jump-inner { max-width: 760px; margin: 0 auto; display: flex; gap: 8px;
+  overflow-x: auto; padding: 0 24px; scrollbar-width: none; }
+.jump-inner::-webkit-scrollbar { display: none; }
+.jump a { flex-shrink: 0; font-family: 'Inter', sans-serif; font-size: 0.7rem;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);
+  text-decoration: none; border: 1px solid var(--line); padding: 8px 14px;
+  /* 44px min so it is a comfortable thumb target on a phone */
+  min-height: 44px; display: inline-flex; align-items: center; }
+.jump a:hover { color: var(--text-main); border-color: var(--gold); }
+
+.cat-head { max-width: 760px; margin: 54px auto 6px; padding: 0 2px; }
+.cat-head h2 { font-size: 1.25rem; margin-bottom: 6px; }
+.cat-head p { font-size: 0.88rem; color: var(--text-muted); margin: 0 0 10px; }
+
+/* Trust strip: the three things that decide whether someone books */
+.trust { background: var(--section-alt); border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft); padding: 30px 24px; margin: 0 0 8px; }
+.trust-row { max-width: 900px; margin: 0 auto; display: grid;
+  grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center; }
+@media (max-width: 640px) { .trust-row { grid-template-columns: 1fr; gap: 18px; } }
+.trust-n { font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--gold-dim); line-height: 1; }
+[data-theme="dark"] .trust-n { color: var(--gold-soft); }
+.trust-l { font-family: 'Inter', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-muted); margin-top: 7px; }
