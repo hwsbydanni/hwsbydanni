@@ -88,8 +88,31 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
 .wordmark small { display: block; font-family: 'Inter', sans-serif; font-size: 0.6rem; letter-spacing: 0.22em; color: var(--gold-soft); text-transform: uppercase; margin-top: 2px; }
 .nav-links { display: flex; gap: 22px; font-size: 0.73rem; letter-spacing: 0.05em; list-style: none; margin: 0; padding: 0; text-transform: uppercase; flex: 1; justify-content: center; }
 .nav-links a { text-decoration: none; color: var(--brand-muted); transition: color 0.25s ease; }
-.nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--gold-soft); }
+.nav-links a:hover, .nav-links a[aria-current] { color: var(--gold-soft); }
 .nav-right { display: flex; align-items: center; gap: 14px; }
+
+/* Services submenu — the nine category pages live under Services, in
+   alphabetical order, in the header, the footer and the category bar.
+   Desktop opens on hover or keyboard focus; no JavaScript needed. */
+.nav-links .has-sub { position: relative; padding: 20px 0; margin: -20px 0; }
+.nav-links .has-sub > a::after {
+  content: ''; display: inline-block; width: 4px; height: 4px; margin-left: 7px;
+  border-right: 1px solid currentColor; border-bottom: 1px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+}
+.sub-toggle { display: none; }
+.sub-menu {
+  position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  min-width: 210px; list-style: none; margin: 0; padding: 10px 0;
+  background: #101012; border: 1px solid var(--line-soft); border-top: 0;
+  box-shadow: 0 24px 40px -20px rgba(0, 0, 0, 0.6);
+  text-transform: none; letter-spacing: 0.03em; font-size: 0.8rem;
+  opacity: 0; visibility: hidden; transition: opacity 0.22s ease;
+}
+.nav-links .has-sub:hover > .sub-menu,
+.nav-links .has-sub:focus-within > .sub-menu { opacity: 1; visibility: visible; }
+.sub-menu a { display: block; padding: 9px 22px; white-space: nowrap; }
+.sub-menu a:hover, .sub-menu a[aria-current="page"] { background: rgba(198, 154, 84, 0.08); }
 
 /* Hamburger button — hidden on desktop, shown when the links collapse */
 .nav-toggle {
@@ -119,7 +142,10 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
     transition: max-height 0.38s cubic-bezier(0.16, 0.8, 0.24, 1), opacity 0.3s ease;
   }
   .nav-links a { display: block; width: 100%; padding: 15px 40px; font-size: 0.82rem; }
-  .nav.open .nav-links { max-height: 80vh; opacity: 1; pointer-events: auto; }
+  /* All the room under the header, so the nine categories plus Reserve fit
+     without the panel clipping them. dvh accounts for mobile browser chrome. */
+  .nav.open .nav-links { max-height: calc(100vh - 78px); opacity: 1; pointer-events: auto; }
+  .nav.open .nav-links { max-height: calc(100dvh - 78px); }
   /* Reserve stays in reach inside the menu, emphasized */
   .nav-links .reserve-item { display: block; margin-top: 4px; border-top: 1px solid var(--line-soft); }
   .nav-links .reserve-item a { color: var(--gold-soft); font-weight: 600; letter-spacing: 0.08em; }
@@ -536,6 +562,13 @@ footer { background: var(--page-bg); padding: 76px 24px 40px; border-top: 1px so
   /* 44px min so it is a comfortable thumb target on a phone */
   min-height: 44px; display: inline-flex; align-items: center; }
 .jump a:hover { color: var(--text-main); border-color: var(--gold); }
+/* Nine categories overflow 760px, so on a wide screen the bar centres and
+   wraps instead of hiding links behind a horizontal scroll with no affordance.
+   Phones keep the swipe. */
+@media (min-width: 900px) {
+  .svc-bar .jump-inner { max-width: 1240px; flex-wrap: wrap; justify-content: center;
+    overflow-x: visible; row-gap: 8px; }
+}
 
 .cat-head { max-width: 760px; margin: 54px auto 6px; padding: 0 2px; }
 .cat-head h2 { font-size: 1.25rem; margin-bottom: 6px; }
@@ -551,3 +584,58 @@ footer { background: var(--page-bg); padding: 76px 24px 40px; border-top: 1px so
 [data-theme="dark"] .trust-n { color: var(--gold-soft); }
 .trust-l { font-family: 'Inter', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--text-muted); margin-top: 7px; }
+
+/* The category bar is the main way to move between services. On a category page
+   it also shows where you are. Sticky under the header so it stays reachable. */
+.svc-bar { top: 64px; }
+.svc-bar a[aria-current="page"] { color: var(--text-main); border-color: var(--gold); background: var(--section-alt); }
+
+/* Mobile submenu: collapsed by default so the menu panel does not run past the
+   fold; motion.js opens it automatically when you are on one of the nine. */
+@media (max-width: 1080px) {
+  .nav.open .nav-links { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .nav-links .has-sub { display: flex; flex-wrap: wrap; align-items: center; padding: 0; margin: 0; position: static; }
+  .nav-links .has-sub > a { flex: 1 1 auto; width: auto; }
+  .nav-links .has-sub > a::after { display: none; }
+  .sub-toggle {
+    display: inline-flex; align-items: center; justify-content: center; flex: none;
+    width: 44px; height: 44px; margin-right: 26px; padding: 0; cursor: pointer;
+    background: transparent; border: 1px solid var(--line-soft); border-radius: 50%;
+    color: var(--gold-soft); transition: transform 0.28s ease, border-color 0.25s ease;
+  }
+  .sub-toggle svg { width: 13px; height: 13px; }
+  .has-sub.is-open .sub-toggle { transform: rotate(180deg); border-color: var(--gold-dim); }
+  .sub-menu {
+    position: static; transform: none; flex-basis: 100%; min-width: 0;
+    opacity: 1; visibility: visible; background: transparent;
+    border: 0; box-shadow: none; padding: 0;
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.34s cubic-bezier(0.16, 0.8, 0.24, 1);
+  }
+  .has-sub.is-open > .sub-menu { max-height: 620px; }
+  .sub-menu a { padding: 10px 40px 10px 58px; font-size: 0.78rem; }
+  .sub-menu li:last-child a { padding-bottom: 14px; }
+}
+
+/* Breadcrumb in the dark page banner — says where the page sits. */
+.crumbs {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 9px;
+  font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
+  margin: 0 0 18px; color: var(--brand-muted);
+}
+.crumbs a { color: var(--brand-muted); text-decoration: none; transition: color 0.25s ease; }
+.crumbs a:hover { color: var(--gold-soft); }
+.crumbs [aria-current] { color: var(--gold-soft); }
+.crumbs .sep { color: var(--gold-dim); opacity: 0.6; }
+
+/* Footer: the nine sit visibly under Services instead of running loose.
+   order:1 drops the group onto its own row so Services reads as its heading. */
+.foot-nav .foot-services {
+  order: 1; flex-basis: 100%; display: flex; flex-wrap: wrap;
+  align-items: baseline; gap: 16px; margin-top: 4px;
+}
+.foot-nav .foot-services > a { color: var(--text-main); }
+.foot-sub {
+  display: flex; flex-wrap: wrap; gap: 16px; list-style: none; margin: 0;
+  padding: 0 0 0 16px; border-left: 1px solid var(--line);
+}

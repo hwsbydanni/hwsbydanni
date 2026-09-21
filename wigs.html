@@ -37,6 +37,7 @@
 <link rel="stylesheet" href="motion.css">
 <script src="theme.js"></script>
 <script src="motion.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.hwsbydanni.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://www.hwsbydanni.com/services.html"},{"@type":"ListItem","position":3,"name":"Wigs","item":"https://www.hwsbydanni.com/wigs.html"}]}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -61,7 +62,7 @@
   ]
 }
 </script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Custom Wigs &amp; <em>Installs</em>","provider":{"@type":"HairSalon","name":"Hair Weaving Solutions by Danni","address":{"@type":"PostalAddress","addressLocality":"Bridgeport","addressRegion":"CT","addressCountry":"US"},"telephone":"+1-203-449-2703"},"areaServed":["Fairfield County CT","New Haven County CT","Westchester County NY"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Custom Wigs &amp; <em>Installs</em>","itemListElement":[{"@type":"Offer","price":"125.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Custom-Made Topper"}},{"@type":"Offer","price":"200.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Head Band Wig ( custom-made)"}},{"@type":"Offer","price":"200.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"(Custom Wig) U-Part Wig"}},{"@type":"Offer","price":"300.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Custom Wig"}},{"@type":"Offer","price":"150.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Wig Reinstall No Customization No shampoo"}},{"@type":"Offer","price":"150.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"(Wig Install) V Part Wig / Kinky Curly Cut"}},{"@type":"Offer","price":"150.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Lace Closure Wig Install (DROP OFF WIG 4 DAYS PRIOR)"}},{"@type":"Offer","price":"150.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"U-Part Wig Install"}},{"@type":"Offer","price":"175.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Wig-Shampoo-Re-Install"}},{"@type":"Offer","price":"200.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"360/Lace Frontal Wig Install"}}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Custom Wigs & Installs","provider":{"@type":"HairSalon","name":"Hair Weaving Solutions by Danni","address":{"@type":"PostalAddress","addressLocality":"Bridgeport","addressRegion":"CT","addressCountry":"US"},"telephone":"+1-203-449-2703"},"areaServed":["Fairfield County CT","New Haven County CT","Westchester County NY"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Custom Wigs & Installs","itemListElement":[{"@type":"Offer","price":"125.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Custom-Made Topper"}},{"@type":"Offer","price":"200.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Head Band Wig ( custom-made)"}},{"@type":"Offer","price":"200.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"(Custom Wig) U-Part Wig"}},{"@type":"Offer","price":"300.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Custom Wig"}},{"@type":"Offer","price":"150.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Wig Reinstall No Customization No shampoo"}},{"@type":"Offer","price":"150.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"(Wig Install) V Part Wig / Kinky Curly Cut"}},{"@type":"Offer","price":"150.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Lace Closure Wig Install (DROP OFF WIG 4 DAYS PRIOR)"}},{"@type":"Offer","price":"150.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"U-Part Wig Install"}},{"@type":"Offer","price":"175.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Wig-Shampoo-Re-Install"}},{"@type":"Offer","price":"200.00","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"360/Lace Frontal Wig Install"}}]}}</script>
 </head>
 <body>
 <header>
@@ -72,7 +73,21 @@
     </a>
     <ul class="nav-links" id="primary-nav">
       <li><a href="about.html">About</a></li>
-      <li><a href="services.html" aria-current="page">Services</a></li>
+      <li class="has-sub">
+        <a href="services.html" aria-current="true">Services</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="services-submenu" aria-label="Show service categories"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <ul class="sub-menu" id="services-submenu">
+          <li><a href="bridal.html">Bridal</a></li>
+          <li><a href="extensions.html">Extensions</a></li>
+          <li><a href="lace-installs.html">Lace Installs</a></li>
+          <li><a href="maintenance.html">Maintenance</a></li>
+          <li><a href="natural-hair.html">Natural Hair</a></li>
+          <li><a href="quick-weave.html">Quick Weaves</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="traveling.html">Traveling</a></li>
+          <li><a href="wigs.html" aria-current="page">Wigs</a></li>
+        </ul>
+      </li>
       <li><a href="experience.html">The Experience</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="reviews.html">Reviews</a></li>
@@ -93,10 +108,11 @@
   </nav>
 </header>
 <section class="page-banner">
-  <span class="eyebrow">Wigs</span>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep" aria-hidden="true">/</span><a href="services.html">Services</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Wigs</span></nav>
   <h1>Custom Wigs &amp; <em>Installs</em></h1>
   <p>Built to your measurements, or installed if you already have the unit. The best no-glue option for anyone protecting a hairline.</p>
 </section>
+<nav class="jump svc-bar" aria-label="Service categories"><div class="jump-inner"><a href="bridal.html">Bridal</a><a href="extensions.html">Extensions</a><a href="lace-installs.html">Lace Installs</a><a href="maintenance.html">Maintenance</a><a href="natural-hair.html">Natural Hair</a><a href="quick-weave.html">Quick Weaves</a><a href="referral.html">Referral</a><a href="traveling.html">Traveling</a><a href="wigs.html" aria-current="page">Wigs</a></div></nav>
 <section class="trust">
   <div class="trust-row">
     <div><div class="trust-n">27 years</div><div class="trust-l">Doing this, not learning it</div></div>
@@ -273,19 +289,23 @@
     <ul class="foot-nav">
       <li><a href="about.html">About</a></li>
       <li><a href="gallery.html">Transformations</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li class="foot-services">
+        <a href="services.html">Services</a>
+        <ul class="foot-sub">
+          <li><a href="bridal.html">Bridal</a></li>
+          <li><a href="extensions.html">Extensions</a></li>
+          <li><a href="lace-installs.html">Lace Installs</a></li>
+          <li><a href="maintenance.html">Maintenance</a></li>
+          <li><a href="natural-hair.html">Natural Hair</a></li>
+          <li><a href="quick-weave.html">Quick Weaves</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="traveling.html">Traveling</a></li>
+          <li><a href="wigs.html">Wigs</a></li>
+        </ul>
+      </li>
       <li><a href="reviews.html">Testimonials</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="policies.html">Policies</a></li>
-      <li><a href="quick-weave.html">Quick Weaves</a>
-          <a href="lace-installs.html">Lace Installs</a>
-          <a href="extensions.html">Extensions</a>
-          <a href="wigs.html">Wigs</a>
-          <a href="natural-hair.html">Natural Hair</a>
-          <a href="maintenance.html">Maintenance</a>
-          <a href="bridal.html">Bridal</a>
-          <a href="traveling.html">Traveling</a>
-          <a href="referral.html">Referral</a></li>
       <li><a href="waitlist.html">Waitlist</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="privacy.html">Privacy</a></li>

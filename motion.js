@@ -141,4 +141,31 @@
       if (window.innerWidth > 1080) close();
     });
   });
+
+  // ------------------------------------------------------------------------
+  // Services submenu
+  // Desktop opens it on hover/focus with CSS alone. On mobile the group is
+  // collapsed so the menu panel stays short, and this handles the caret. When
+  // you are already on one of the nine pages the group starts open, so the
+  // page you are reading is visible in its place under Services.
+  // ------------------------------------------------------------------------
+  ready(function () {
+    document.querySelectorAll('.nav-links .has-sub').forEach(function (item) {
+      var btn = item.querySelector('.sub-toggle');
+      var sub = item.querySelector('.sub-menu');
+      if (!btn || !sub) return;
+
+      function setOpen(open) {
+        item.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Hide service categories' : 'Show service categories');
+      }
+
+      setOpen(!!sub.querySelector('[aria-current]'));
+
+      btn.addEventListener('click', function () {
+        setOpen(!item.classList.contains('is-open'));
+      });
+    });
+  });
 })();
