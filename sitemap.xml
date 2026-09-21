@@ -1,17 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap for hwsbydanni.com
+
+  lastmod is the date each page's CONTENT last changed, taken from git history.
+  Sitewide boilerplate edits (the chat script added to all 15 pages on 2026-09-20,
+  footer tweaks) are deliberately NOT reflected here: dating every page to a
+  scripted change tells Google the whole site was rewritten in one day, and the
+  usual result is that it stops trusting lastmod on this domain entirely.
+
+  404.html is excluded on purpose. No changefreq or priority: Google ignores both.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.hwsbydanni.com/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/about.html</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/services.html</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/traditional-sew-in.html</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/versatile-sew-in.html</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/experience.html</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/gallery.html</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/reviews.html</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/faq.html</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/policies.html</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/referral.html</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/waitlist.html</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/contact.html</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/privacy.html</loc><lastmod>2026-08-19</lastmod></url>
+
+  <url><loc>https://www.hwsbydanni.com/</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/about.html</loc><lastmod>2026-09-09</lastmod></url>
+
+  <url><loc>https://www.hwsbydanni.com/services.html</loc><lastmod>2026-09-09</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/traditional-sew-in.html</loc><lastmod>2026-09-09</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/versatile-sew-in.html</loc><lastmod>2026-09-09</lastmod></url>
+
+  <url><loc>https://www.hwsbydanni.com/experience.html</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/gallery.html</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/reviews.html</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/faq.html</loc><lastmod>2026-09-09</lastmod></url>
+
+  <url><loc>https://www.hwsbydanni.com/policies.html</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/referral.html</loc><lastmod>2026-09-11</lastmod></url>
+
+  <url><loc>https://www.hwsbydanni.com/waitlist.html</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/contact.html</loc><lastmod>2026-09-06</lastmod></url>
+
+  <url><loc>https://www.hwsbydanni.com/privacy.html</loc><lastmod>2026-09-06</lastmod></url>
+
 </urlset>
