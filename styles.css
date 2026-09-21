@@ -162,16 +162,8 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
     radial-gradient(ellipse 60% 50% at 95% 95%, rgba(99,183,171,0.07), transparent 60%);
   pointer-events: none; z-index: 1;
 }
-.hero-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; position: relative; z-index: 2; min-height: 640px; }
 @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; min-height: 0; } }
-.hero-copy { padding: 90px 48px; display: flex; flex-direction: column; justify-content: center; }
 @media (max-width: 600px) { .hero-copy { padding: 64px 24px 40px; } }
-.hero .eyebrow { display: block; margin-bottom: 26px; }
-.hero h1 { font-size: clamp(2.3rem, 4.2vw, 3.5rem); line-height: 1.12; font-weight: 400; }
-.hero .script { display: block; font-style: italic; color: var(--teal); font-weight: 400; font-size: 0.55em; margin: 14px 0 4px; }
-.hero .tagline { color: var(--brand-muted); font-size: 1.02rem; margin: 22px 0 36px; max-width: 420px; }
-.hero-checks { list-style: none; margin: 0 0 42px; padding: 0; display: grid; gap: 15px; }
-.hero-checks li { display: flex; align-items: center; gap: 13px; font-size: 0.9rem; color: var(--brand-ivory); letter-spacing: 0.01em; }
 .check-dot { width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--gold-dim); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .check-dot svg { width: 9px; height: 9px; }
 .hero-actions { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
@@ -205,10 +197,7 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
 
 /* ---------- Pain points (Home) ---------- */
 .pain { padding: 100px 24px 84px; background: var(--page-bg); }
-.pain-row { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
 @media (max-width: 820px) { .pain-row { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; } }
-.pain-item { border-left: 1px solid var(--line-soft); }
-.pain-row .pain-item:first-child { border-left: none; }
 @media (max-width: 820px) {
   .pain-item { border-left: none; }
   /* Centre the orphaned 5th item across both mobile columns */
@@ -294,8 +283,6 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
 
 /* ---------- Transformations gallery (always brand-dark) ---------- */
 .transformations { background: var(--brand-bg); padding: 100px 24px; }
-.transformations .section-head h2 { color: var(--brand-ivory); }
-.transformations .section-head h2 em { color: var(--teal); }
 .trans-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 @media (max-width: 780px) { .trans-grid { grid-template-columns: repeat(2, 1fr); } }
 .trans-frame { position: relative; aspect-ratio: 3/4; background: linear-gradient(160deg, #201F1D, #121110); }
