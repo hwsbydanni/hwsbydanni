@@ -37,16 +37,7 @@
 <link rel="stylesheet" href="motion.css">
 <script src="theme.js"></script>
 <script src="motion.js"></script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.hwsbydanni.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Referral Program", "item": "https://www.hwsbydanni.com/referral.html" }
-  ]
-}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.hwsbydanni.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://www.hwsbydanni.com/services.html"},{"@type":"ListItem","position":3,"name":"Referral","item":"https://www.hwsbydanni.com/referral.html"}]}</script>
 </head>
 <body>
 <header>
@@ -57,7 +48,21 @@
     </a>
     <ul class="nav-links" id="primary-nav">
       <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li class="has-sub">
+        <a href="services.html" aria-current="true">Services</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="services-submenu" aria-label="Show service categories"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <ul class="sub-menu" id="services-submenu">
+          <li><a href="bridal.html">Bridal</a></li>
+          <li><a href="extensions.html">Extensions</a></li>
+          <li><a href="lace-installs.html">Lace Installs</a></li>
+          <li><a href="maintenance.html">Maintenance</a></li>
+          <li><a href="natural-hair.html">Natural Hair</a></li>
+          <li><a href="quick-weave.html">Quick Weaves</a></li>
+          <li><a href="referral.html" aria-current="page">Referral</a></li>
+          <li><a href="traveling.html">Traveling</a></li>
+          <li><a href="wigs.html">Wigs</a></li>
+        </ul>
+      </li>
       <li><a href="experience.html">The Experience</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="reviews.html">Reviews</a></li>
@@ -78,10 +83,11 @@
   </nav>
 </header>
 <section class="page-banner">
-  <span class="eyebrow">Referral Program</span>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep" aria-hidden="true">/</span><a href="services.html">Services</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Referral</span></nav>
   <h1>Share the Studio, <em>Share the Love</em></h1>
   <p>A simple thank-you for both of you.</p>
 </section>
+<nav class="jump svc-bar" aria-label="Service categories"><div class="jump-inner"><a href="bridal.html">Bridal</a><a href="extensions.html">Extensions</a><a href="lace-installs.html">Lace Installs</a><a href="maintenance.html">Maintenance</a><a href="natural-hair.html">Natural Hair</a><a href="quick-weave.html">Quick Weaves</a><a href="referral.html" aria-current="page">Referral</a><a href="traveling.html">Traveling</a><a href="wigs.html">Wigs</a></div></nav>
 
 <section class="referral-wrap">
   <p class="referral-lead">Know someone who would enjoy a private, one-on-one hair experience? Refer them to Hair Weaving Solutions by Danni, and once they complete their first paid appointment, there will be a special thank-you for both of you.</p>
@@ -166,19 +172,23 @@
     <ul class="foot-nav">
       <li><a href="about.html">About</a></li>
       <li><a href="gallery.html">Transformations</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li class="foot-services">
+        <a href="services.html">Services</a>
+        <ul class="foot-sub">
+          <li><a href="bridal.html">Bridal</a></li>
+          <li><a href="extensions.html">Extensions</a></li>
+          <li><a href="lace-installs.html">Lace Installs</a></li>
+          <li><a href="maintenance.html">Maintenance</a></li>
+          <li><a href="natural-hair.html">Natural Hair</a></li>
+          <li><a href="quick-weave.html">Quick Weaves</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="traveling.html">Traveling</a></li>
+          <li><a href="wigs.html">Wigs</a></li>
+        </ul>
+      </li>
       <li><a href="reviews.html">Testimonials</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="policies.html">Policies</a></li>
-      <li><a href="quick-weave.html">Quick Weaves</a>
-          <a href="lace-installs.html">Lace Installs</a>
-          <a href="extensions.html">Extensions</a>
-          <a href="wigs.html">Wigs</a>
-          <a href="natural-hair.html">Natural Hair</a>
-          <a href="maintenance.html">Maintenance</a>
-          <a href="bridal.html">Bridal</a>
-          <a href="traveling.html">Traveling</a>
-          <a href="referral.html">Referral</a></li>
       <li><a href="waitlist.html">Waitlist</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="privacy.html">Privacy</a></li>

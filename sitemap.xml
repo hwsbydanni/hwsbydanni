@@ -8,6 +8,13 @@
   scripted change tells Google the whole site was rewritten in one day, and the
   usual result is that it stops trusting lastmod on this domain entirely.
 
+  The nine category pages are grouped under services.html below, in the same
+  alphabetical order the site navigation uses. The URLs stay flat (/wigs.html,
+  not /services/wigs.html) on purpose: GitHub Pages has no server-side
+  redirects, so moving them would strand the URLs already submitted for
+  indexing. The hierarchy is expressed in the navigation and in each page's
+  BreadcrumbList instead.
+
   404.html is excluded on purpose. No changefreq or priority: Google ignores both.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -15,26 +22,27 @@
   <url><loc>https://www.hwsbydanni.com/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://www.hwsbydanni.com/about.html</loc><lastmod>2026-09-09</lastmod></url>
 
-  <url><loc>https://www.hwsbydanni.com/services.html</loc><lastmod>2026-09-09</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/services.html</loc><lastmod>2026-09-21</lastmod></url>
   <url><loc>https://www.hwsbydanni.com/traditional-sew-in.html</loc><lastmod>2026-09-09</lastmod></url>
   <url><loc>https://www.hwsbydanni.com/versatile-sew-in.html</loc><lastmod>2026-09-09</lastmod></url>
+
+  <!-- Service categories, alphabetical, all under Services in the navigation -->
+  <url><loc>https://www.hwsbydanni.com/bridal.html</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/extensions.html</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/lace-installs.html</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/maintenance.html</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/natural-hair.html</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/quick-weave.html</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/referral.html</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/traveling.html</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/wigs.html</loc><lastmod>2026-09-21</lastmod></url>
 
   <url><loc>https://www.hwsbydanni.com/experience.html</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://www.hwsbydanni.com/gallery.html</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://www.hwsbydanni.com/reviews.html</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://www.hwsbydanni.com/faq.html</loc><lastmod>2026-09-09</lastmod></url>
 
-  <url><loc>https://www.hwsbydanni.com/bridal.html</loc><lastmod>2026-09-21</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/traveling.html</loc><lastmod>2026-09-21</lastmod></url>
-
-  <url><loc>https://www.hwsbydanni.com/quick-weave.html</loc><lastmod>2026-09-21</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/lace-installs.html</loc><lastmod>2026-09-21</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/extensions.html</loc><lastmod>2026-09-21</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/wigs.html</loc><lastmod>2026-09-21</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/natural-hair.html</loc><lastmod>2026-09-21</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/maintenance.html</loc><lastmod>2026-09-21</lastmod></url>
   <url><loc>https://www.hwsbydanni.com/policies.html</loc><lastmod>2026-09-11</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/referral.html</loc><lastmod>2026-09-11</lastmod></url>
 
   <url><loc>https://www.hwsbydanni.com/waitlist.html</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://www.hwsbydanni.com/contact.html</loc><lastmod>2026-09-06</lastmod></url>
