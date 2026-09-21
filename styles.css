@@ -551,3 +551,8 @@ footer { background: var(--page-bg); padding: 76px 24px 40px; border-top: 1px so
 [data-theme="dark"] .trust-n { color: var(--gold-soft); }
 .trust-l { font-family: 'Inter', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--text-muted); margin-top: 7px; }
+
+/* The category bar is the main way to move between services. On a category page
+   it also shows where you are. Sticky under the header so it stays reachable. */
+.svc-bar { top: 64px; }
+.svc-bar a[aria-current="page"] { color: var(--text-main); border-color: var(--gold); background: var(--section-alt); }
