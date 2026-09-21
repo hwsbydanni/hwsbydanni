@@ -193,7 +193,12 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
 .section-head { text-align: center; max-width: 560px; margin: 0 auto 60px; padding: 0 24px; }
 .section-head .eyebrow { display: block; margin-bottom: 14px; }
 .section-head h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 420; }
-.section-head h2 em { font-style: italic; color: var(--teal-accent); font-weight: 400; }
+.section-head h2 em { font-style: italic; color: var(--teal-accent); font-weight: 400;
+  /* Keep the emphasised phrase on one line so a heading breaks BEFORE it
+     rather than through it. Without this, "Why women choose HWS by Danni"
+     splits the business name across the wrap. Every em in a section heading
+     is a short phrase, so this cannot cause overflow. */
+  white-space: nowrap; }
 
 /* ---------- Pain points (Home) ---------- */
 .pain { padding: 100px 24px 84px; background: var(--page-bg); }
