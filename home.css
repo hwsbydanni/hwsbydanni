@@ -194,3 +194,21 @@
   .book-ways .card-go { margin-top: auto; padding-top: 20px; align-self: flex-start;
     color: var(--link); border-bottom: 1px solid var(--link); text-decoration: none;
     font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 4px; }
+
+/* ---------- Overrides kept deliberately after the convergence ----------
+   These four were tuned for the homepage's own content and are worse when
+   taken from styles.css. Verified by before/after render, not by eye.
+
+   .section-head       styles.css adds padding: 0 24px, cutting usable width
+                       from 560px to 512px, which wraps "Why women choose HWS
+                       by Danni" onto two lines and splits the business name.
+   .section-head h2    the homepage's slightly larger clamp, kept with it.
+   .exp-frame          styles.css crops the studio photography to 4/3.4. The
+                       homepage uses 4/5, which is what those images were
+                       framed for; the shared value cuts heads and feet.
+   .exp-grid           22px gutter to match the taller frames.
+   ---------------------------------------------------------------------- */
+.section-head { padding: 0; margin: 0 auto 64px; }
+.section-head h2 { font-size: clamp(1.8rem, 3vw, 2.35rem); }
+.exp-frame { aspect-ratio: 4/5; background: linear-gradient(160deg, var(--brand-ink), #221F1B); }
+.exp-grid { gap: 22px; }
