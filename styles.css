@@ -162,16 +162,8 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
     radial-gradient(ellipse 60% 50% at 95% 95%, rgba(99,183,171,0.07), transparent 60%);
   pointer-events: none; z-index: 1;
 }
-.hero-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; position: relative; z-index: 2; min-height: 640px; }
 @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; min-height: 0; } }
-.hero-copy { padding: 90px 48px; display: flex; flex-direction: column; justify-content: center; }
 @media (max-width: 600px) { .hero-copy { padding: 64px 24px 40px; } }
-.hero .eyebrow { display: block; margin-bottom: 26px; }
-.hero h1 { font-size: clamp(2.3rem, 4.2vw, 3.5rem); line-height: 1.12; font-weight: 400; }
-.hero .script { display: block; font-style: italic; color: var(--teal); font-weight: 400; font-size: 0.55em; margin: 14px 0 4px; }
-.hero .tagline { color: var(--brand-muted); font-size: 1.02rem; margin: 22px 0 36px; max-width: 420px; }
-.hero-checks { list-style: none; margin: 0 0 42px; padding: 0; display: grid; gap: 15px; }
-.hero-checks li { display: flex; align-items: center; gap: 13px; font-size: 0.9rem; color: var(--brand-ivory); letter-spacing: 0.01em; }
 .check-dot { width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--gold-dim); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .check-dot svg { width: 9px; height: 9px; }
 .hero-actions { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
@@ -201,14 +193,16 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
 .section-head { text-align: center; max-width: 560px; margin: 0 auto 60px; padding: 0 24px; }
 .section-head .eyebrow { display: block; margin-bottom: 14px; }
 .section-head h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 420; }
-.section-head h2 em { font-style: italic; color: var(--teal-accent); font-weight: 400; }
+.section-head h2 em { font-style: italic; color: var(--teal-accent); font-weight: 400;
+  /* Keep the emphasised phrase on one line so a heading breaks BEFORE it
+     rather than through it. Without this, "Why women choose HWS by Danni"
+     splits the business name across the wrap. Every em in a section heading
+     is a short phrase, so this cannot cause overflow. */
+  white-space: nowrap; }
 
 /* ---------- Pain points (Home) ---------- */
 .pain { padding: 100px 24px 84px; background: var(--page-bg); }
-.pain-row { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
 @media (max-width: 820px) { .pain-row { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; } }
-.pain-item { border-left: 1px solid var(--line-soft); }
-.pain-row .pain-item:first-child { border-left: none; }
 @media (max-width: 820px) {
   .pain-item { border-left: none; }
   /* Centre the orphaned 5th item across both mobile columns */
@@ -262,6 +256,21 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
 .tier-lead { max-width: 640px; margin: -8px auto 32px; text-align: center; font-size: 0.95rem; color: var(--text-muted); padding: 0 24px; }
 .tier-note { max-width: 700px; margin: 46px auto 0; text-align: center; font-size: 0.85rem; color: var(--text-muted); padding: 0 24px; }
 
+/* ---------- Ways to book (services + home) ----------
+   Reuses .tiers/.tier-grid/.tier-card so the block inherits the section
+   rhythm, card surface and hairlines rather than restating them. Only the
+   column count and the card action are new. */
+.book-grid { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 980px) { .book-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .book-grid { grid-template-columns: 1fr; } }
+.tier-card { display: flex; flex-direction: column; }
+.tier-card .card-go { margin-top: auto; padding-top: 20px; align-self: flex-start; }
+/* .btn-text.on-light hardcodes --teal-deep, which is a brand constant and does
+   not flip with the theme (1.65:1 on the dark card surface). --link is
+   theme-aware and clears AA in both. */
+.tier-card .card-go, .tier-card .card-go:hover { color: var(--link); border-color: var(--link); }
+.book-ways { padding-top: 90px; }
+
 /* ---------- Gallery page wrapper (light section holding the frames) ---------- */
 .gallery-wrap { padding: 20px 24px 110px; background: var(--page-bg); }
 .gallery-note { max-width: 640px; margin: 44px auto 0; text-align: center; font-size: 0.85rem; color: var(--text-muted); padding: 0 24px; }
@@ -279,8 +288,6 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
 
 /* ---------- Transformations gallery (always brand-dark) ---------- */
 .transformations { background: var(--brand-bg); padding: 100px 24px; }
-.transformations .section-head h2 { color: var(--brand-ivory); }
-.transformations .section-head h2 em { color: var(--teal); }
 .trans-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 @media (max-width: 780px) { .trans-grid { grid-template-columns: repeat(2, 1fr); } }
 .trans-frame { position: relative; aspect-ratio: 3/4; background: linear-gradient(160deg, #201F1D, #121110); }
