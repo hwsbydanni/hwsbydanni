@@ -1,0 +1,374 @@
+{
+  "_note": "Service photos as uploaded to Acuity, keyed by appointment type ID. Regenerate with tools/fetch_service_photos.py --refresh-manifest; download the files with tools/fetch_service_photos.py.",
+  "photos": {
+    "17514490": {
+      "name": "5x5 Lace Closure ➡️ DROP OFF TUESDAYS",
+      "category": "Lace Installs DROP OFF TUESDAYS",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-17514490.jpg?1610057476",
+      "pages": [
+        "lace-installs.html"
+      ]
+    },
+    "17533676": {
+      "name": "Clip Ins",
+      "category": "Extensions",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-17533676.jpeg?1674878306",
+      "pages": [
+        "extensions.html"
+      ]
+    },
+    "17537980": {
+      "name": "Custom Wig",
+      "category": "Custom Wigs (  The best no glue option)",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-17537980.jpeg?1728332301",
+      "pages": [
+        "wigs.html"
+      ]
+    },
+    "17538229": {
+      "name": "360/Lace Frontal Wig Install",
+      "category": "Wigs",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-17538229.png?1610555613",
+      "pages": [
+        "wigs.html"
+      ]
+    },
+    "17538529": {
+      "name": "(Custom Wig) U-Part Wig",
+      "category": "Custom Wigs (  The best no glue option)",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-17538529.jpeg?1756489775",
+      "pages": [
+        "wigs.html"
+      ]
+    },
+    "18573767": {
+      "name": "Full Head Microlink Sew In",
+      "category": "Extensions",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-18573767.jpg?1610037846",
+      "pages": [
+        "extensions.html"
+      ]
+    },
+    "25237833": {
+      "name": "Wig-Shampoo-Re-Install",
+      "category": "Wigs",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-thumb-25237833.jpeg?1782756398",
+      "pages": [
+        "wigs.html"
+      ]
+    },
+    "25414331": {
+      "name": "Lace Closure Wig Install (DROP OFF WIG 4 DAYS PRIOR)",
+      "category": "Wigs",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-25414331.jpeg?1652670210",
+      "pages": [
+        "wigs.html"
+      ]
+    },
+    "32392821": {
+      "name": "Silk-Press + Micro Link",
+      "category": "Extensions",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-32392821.jpeg?1652669498",
+      "pages": [
+        "extensions.html"
+      ]
+    },
+    "33766341": {
+      "name": "Microlink Sew In/ 3-4 Rows/ No Silk Press",
+      "category": "Extensions",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-33766341.jpeg?1707333892",
+      "pages": [
+        "extensions.html"
+      ]
+    },
+    "35000275": {
+      "name": "Head Band Wig ( custom-made)",
+      "category": "Custom Wigs (  The best no glue option)",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-35000275.jpeg?1657192486",
+      "pages": [
+        "wigs.html"
+      ]
+    },
+    "40654527": {
+      "name": "Quick Weave With Leave Out",
+      "category": "Quick Weave",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-40654527.jpeg?1694914297",
+      "pages": [
+        "quick-weave.html"
+      ]
+    },
+    "49978307": {
+      "name": "Lace Frontal Pixie Cut DROP OFF TUESDAYS",
+      "category": "Lace Installs DROP OFF TUESDAYS",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-49978307.jpeg?1688928461",
+      "pages": [
+        "lace-installs.html"
+      ]
+    },
+    "51859058": {
+      "name": "Traveling Hairstylist (AWAITING APPROVAL)",
+      "category": "A Traveling Hairstylist",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-51859058.png?1692728226",
+      "pages": [
+        "traveling.html"
+      ]
+    },
+    "52149522": {
+      "name": "Quick Weave Bond In Bob With Leave Out",
+      "category": "Quick Weave",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-52149522.jpeg?1784672361",
+      "pages": [
+        "quick-weave.html"
+      ]
+    },
+    "52150062": {
+      "name": "Quick Weave Lace Closure",
+      "category": "Quick Weave",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-52150062.jpeg?1693564273",
+      "pages": [
+        "quick-weave.html"
+      ]
+    },
+    "52517823": {
+      "name": "Full Head Sew in",
+      "category": "No Leave Out No Lace",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-52517823.jpeg?1756490675",
+      "pages": [
+        "lace-installs.html"
+      ]
+    },
+    "54446610": {
+      "name": "Front Tape In /Back Sew In",
+      "category": "Extensions",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-54446610.jpeg?1756487666",
+      "pages": [
+        "extensions.html"
+      ]
+    },
+    "59620342": {
+      "name": "Quick Weave 2x6 Lace Closure",
+      "category": "Quick Weave",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-59620342.jpeg?1708906861",
+      "pages": [
+        "quick-weave.html"
+      ]
+    },
+    "68533473": {
+      "name": "V Part Sew In (Kinky Curly)",
+      "category": "No Leave Out No Lace",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-68533473.jpeg?1726255553",
+      "pages": [
+        "lace-installs.html"
+      ]
+    },
+    "74048948": {
+      "name": "THE ULTIMATE HAIR VENDOR LIST",
+      "category": "A 1 Trusted Hair Vendor List",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-74048948.jpeg?1738779426",
+      "pages": [
+        "bridal.html",
+        "maintenance.html"
+      ]
+    },
+    "79415699": {
+      "name": "Removal + Tape In  + Re-Tape + Re Install",
+      "category": "Removal Only & Removal + Reinstallation Services",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-79415699.jpeg?1756488421",
+      "pages": [
+        "maintenance.html"
+      ]
+    },
+    "79816600": {
+      "name": "(Wig Install) V Part Wig / Kinky Curly Cut",
+      "category": "Wigs",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-79816600.jpeg?1750299337",
+      "pages": [
+        "wigs.html"
+      ]
+    },
+    "81929737": {
+      "name": "Shampoo Bundles + Lace Closure Install ➡️ DROP OFF TUESDAYS",
+      "category": "Lace Installs DROP OFF TUESDAYS",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-81929737.jpeg?1756494474",
+      "pages": [
+        "lace-installs.html"
+      ]
+    },
+    "82844949": {
+      "name": "Quick Weave Curly Hair Flip Over",
+      "category": "Quick Weave",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-82844949.jpeg?1756497986",
+      "pages": [
+        "quick-weave.html"
+      ]
+    },
+    "82853575": {
+      "name": "Maintenance) Traditional Sew In Maintenance Guide",
+      "category": "Maintenance Guide",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-82853575.jpeg?1756511073",
+      "pages": [
+        "maintenance.html"
+      ]
+    },
+    "83053050": {
+      "name": "Full Sew In + Curly Crochet",
+      "category": "No Leave Out No Lace",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-83053050.jpeg?1756989332",
+      "pages": [
+        "lace-installs.html"
+      ]
+    },
+    "87333370": {
+      "name": "Tape-In Experience + Deluxe Silk Press",
+      "category": "Extensions",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-thumb-87333370.jpeg?1785863630",
+      "pages": [
+        "extensions.html"
+      ]
+    },
+    "95127225": {
+      "name": "Wig Reinstall No Customization No shampoo",
+      "category": "Wigs",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-95127225.jpeg?1782752615",
+      "pages": [
+        "wigs.html"
+      ]
+    },
+    "95177934": {
+      "name": "Signature Bridal Install",
+      "category": "Bridal Hair",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-95177934.jpeg?1782842230",
+      "pages": [
+        "bridal.html"
+      ]
+    },
+    "95660122": {
+      "name": "Two-Strand Twists (SHORT)",
+      "category": "Healthy Natural Hair",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-95660122.jpeg?1783880608",
+      "pages": [
+        "natural-hair.html"
+      ]
+    },
+    "95660499": {
+      "name": "Rod Set (SHORT)",
+      "category": "Healthy Natural Hair",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-95660499.jpeg?1783881236",
+      "pages": [
+        "natural-hair.html"
+      ]
+    },
+    "95673426": {
+      "name": "Flat Twist Set (SHORT)",
+      "category": "Healthy Natural Hair",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-95673426.jpeg?1783903968",
+      "pages": [
+        "natural-hair.html"
+      ]
+    },
+    "95711188": {
+      "name": "Two-Strand Twists (MEDIUM)",
+      "category": "Healthy Natural Hair",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-95711188.jpeg?1783983204",
+      "pages": [
+        "natural-hair.html"
+      ]
+    },
+    "95712300": {
+      "name": "Two-Strand Twists (LONG)",
+      "category": "Healthy Natural Hair",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-95712300.jpeg?1783984704",
+      "pages": [
+        "natural-hair.html"
+      ]
+    },
+    "95713578": {
+      "name": "Rod Set (MEDIUM)",
+      "category": "Healthy Natural Hair",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-95713578.jpeg?1783986530",
+      "pages": [
+        "natural-hair.html"
+      ]
+    },
+    "96070717": {
+      "name": "2x6 Lace Closure (Behind the hairline)",
+      "category": "Lace Installs DROP OFF TUESDAYS",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-thumb-96070717.jpeg?1784665073",
+      "pages": [
+        "lace-installs.html"
+      ]
+    },
+    "96071770": {
+      "name": "Lace Frontal Sew In Install 13x4",
+      "category": "Lace Installs DROP OFF TUESDAYS",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-96071770.jpeg?1784666204",
+      "pages": [
+        "lace-installs.html"
+      ]
+    },
+    "96076207": {
+      "name": "Lace Frontal Quick Weave",
+      "category": "Quick Weave",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-thumb-96076207.jpeg?1784671389",
+      "pages": [
+        "quick-weave.html"
+      ]
+    },
+    "96078615": {
+      "name": "Flip Over Quick Weave",
+      "category": "Quick Weave",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-thumb-96078615.jpeg?1784674285",
+      "pages": [
+        "quick-weave.html"
+      ]
+    },
+    "96083120": {
+      "name": "Curls",
+      "category": "Styling",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-thumb-96083120.jpeg?1784680033",
+      "pages": [
+        "maintenance.html"
+      ]
+    },
+    "96083804": {
+      "name": "Crimp",
+      "category": "Styling",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-thumb-96083804.jpeg?1784680913",
+      "pages": [
+        "maintenance.html"
+      ]
+    },
+    "96084544": {
+      "name": "Recurl-Straighten Existing install",
+      "category": "Styling",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-96084544.jpeg?1784681823",
+      "pages": [
+        "maintenance.html"
+      ]
+    },
+    "96372736": {
+      "name": "Simple Ponytail",
+      "category": "Styling",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-thumb-96372736.jpeg?1785249439",
+      "pages": [
+        "maintenance.html"
+      ]
+    },
+    "96696686": {
+      "name": "Concierge Bridal Experience",
+      "category": "Bridal Hair",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-96696686.jpg?1785872922",
+      "pages": [
+        "bridal.html"
+      ]
+    },
+    "98150981": {
+      "name": "Digital Download: Hair Loss & Alopecia Specialist Referral Guide",
+      "category": "A 1 Trusted Hair Vendor List",
+      "image": "https://cdn-s.acuityscheduling.com/appointmentType-98150981.jpg?1789081013",
+      "pages": [
+        "maintenance.html"
+      ]
+    }
+  }
+}
