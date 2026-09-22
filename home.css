@@ -94,7 +94,9 @@
     .nav-cta { display: none; }
   }
 
-  .hero { position: relative; background: var(--brand-bg); color: var(--brand-ivory); padding: 120px 40px 140px; overflow: hidden; }
+  /* Top padding halved (120 -> 60): the gap between the header and the
+     eyebrow was pushing the headline below the fold on a phone. */
+  .hero { position: relative; background: var(--brand-bg); color: var(--brand-ivory); padding: 60px 40px 140px; overflow: hidden; }
   .hero-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 74px; align-items: center; position: relative; z-index: 2; }
   @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; } }
   .hero .eyebrow { display: block; margin-bottom: 26px; }
