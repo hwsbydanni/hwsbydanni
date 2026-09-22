@@ -3,8 +3,13 @@
 One photo per bookable service, named by its Acuity appointment type id
 (`95263986.jpg`). The category pages show it inside the expanded service row.
 
-These are not committed by hand. Fetch them from Acuity, where Danni already
-uploads a photo against each appointment type:
+These are not committed by hand. They come from Acuity, where Danni already
+uploads a photo against each appointment type.
+
+**The easy way:** on GitHub, open the Actions tab, pick *Fetch service photos*
+and click *Run workflow*. It downloads, commits and pushes for you.
+
+Or locally:
 
 ```bash
 python3 tools/fetch_service_photos.py           # download what is missing

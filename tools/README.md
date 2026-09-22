@@ -14,6 +14,10 @@ tools/check_all.sh --states     # adds hover and open accordions, ~6 minutes
 
 Every check exits non-zero on failure, so `check_all.sh` can gate a commit.
 
+**You do not have to run these locally.** `.github/workflows/checks.yml` runs
+them on GitHub's machines for every push to `main` and every pull request, and
+runs the slower interactive pass every Monday morning. Nothing to install.
+
 ---
 
 ## What each one does
@@ -62,6 +66,25 @@ Records ~25 computed properties and a bounding rect for every element on every
 page, four widths, both themes. The diff separates what you changed from what
 merely moved as a result, so a one-line token edit does not read as three
 thousand regressions.
+
+### `fetch_service_photos.py` — the photos on the category pages
+
+Downloads the photo Danni has against each appointment type in Acuity into
+`images/services/`, resized and recompressed. The pages show it inside the
+expanded service row.
+
+**The easy way is the Actions tab on GitHub**: open *Fetch service photos*,
+click *Run workflow*. It downloads, commits and pushes, and needs nothing
+installed. Tick *Rebuild the list* only after adding a photo to a service that
+did not have one; that needs the `ACUITY_USER_ID` and `ACUITY_API_KEY` secrets,
+both from Acuity's Integrations → API page.
+
+Locally it is `python3 tools/fetch_service_photos.py`, with `--check` to see
+what is missing and `--force` to re-download.
+
+**Mind `--force` when a photo is replaced.** A replaced photo keeps the same
+filename here, so a plain run skips it as "already present" and the old one
+stays on the site. The workflow passes `--force` by default for that reason.
 
 ### `sitemap_dates.py` — what `lastmod` should say
 

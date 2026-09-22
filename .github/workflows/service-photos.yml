@@ -1,0 +1,82 @@
+name: Fetch service photos
+
+# Pulls the photos Danni has against each appointment type in Acuity and
+# commits them, so updating the pictures on the site means updating them in
+# Acuity and clicking "Run workflow" here. Nothing to install, no terminal.
+#
+# Re-run this whenever a photo changes in Acuity. It re-downloads every file
+# by default, because a replaced photo keeps the same filename here and would
+# otherwise be skipped as "already present".
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Re-download every photo, not just the missing ones'
+        type: boolean
+        default: true
+      refresh_manifest:
+        description: >-
+          Rebuild the list of which services have a photo. Needed after adding
+          a photo to a service that did not have one. Requires the
+          ACUITY_USER_ID and ACUITY_API_KEY repository secrets.
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install pillow
+
+      - name: Check credentials if the list is being rebuilt
+        if: inputs.refresh_manifest
+        env:
+          ACUITY_USER_ID: ${{ secrets.ACUITY_USER_ID }}
+          ACUITY_API_KEY: ${{ secrets.ACUITY_API_KEY }}
+        run: |
+          if [ -z "$ACUITY_USER_ID" ] || [ -z "$ACUITY_API_KEY" ]; then
+            echo "::error::Rebuilding the list needs the ACUITY_USER_ID and ACUITY_API_KEY secrets."
+            echo "::error::Add them under Settings -> Secrets and variables -> Actions."
+            echo "::error::Both come from Acuity: Integrations -> API."
+            exit 1
+          fi
+
+      - name: Fetch
+        env:
+          ACUITY_USER_ID: ${{ secrets.ACUITY_USER_ID }}
+          ACUITY_API_KEY: ${{ secrets.ACUITY_API_KEY }}
+        run: |
+          python3 tools/fetch_service_photos.py \
+            ${{ inputs.refresh_manifest && '--refresh-manifest' || '' }} \
+            ${{ inputs.force && '--force' || '' }}
+
+      - name: Commit anything that changed
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add images/services tools/service-photos.json
+          if git diff --cached --quiet; then
+            echo "The photos already match Acuity; nothing to commit."
+            exit 0
+          fi
+          git diff --cached --stat
+          git commit -m "Update the service photos from Acuity
+
+          Run from the Fetch service photos workflow."
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push origin HEAD:"${{ github.ref_name }}"
+
+      - name: Report
+        run: python3 tools/fetch_service_photos.py --check
