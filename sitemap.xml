@@ -9,12 +9,11 @@
   was rewritten in one day. The usual result is that it stops trusting lastmod
   on this domain entirely.
 
-  Derived by walking each page's history newest-first and taking the first
-  commit whose diff changes the page once <head>, <header>, <footer>, comments
-  and <script> blocks are stripped out: the first commit that changed
-  what a reader would see as this page rather than as the site. privacy.html's
-  2026-09-20 is real: it gained the chat-assistant disclosure in that commit,
-  not just the script.
+  Run tools/sitemap_dates.py to derive these. It walks each page's history
+  newest-first and stops at the first commit that still changes the page once
+  the shared header and footer, scripts, comments and style attributes are
+  stripped out, keeping the title and meta description because those are what
+  a search result shows.
 
   The nine category pages are grouped under services.html below, in the same
   alphabetical order the site navigation uses. The URLs stay flat (/wigs.html,
@@ -32,7 +31,7 @@
 
   <url><loc>https://www.hwsbydanni.com/services.html</loc><lastmod>2026-09-22</lastmod></url>
   <url><loc>https://www.hwsbydanni.com/traditional-sew-in.html</loc><lastmod>2026-09-09</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/versatile-sew-in.html</loc><lastmod>2026-09-09</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/versatile-sew-in.html</loc><lastmod>2026-09-21</lastmod></url>
 
   <!-- Service categories, alphabetical, all under Services in the navigation -->
   <url><loc>https://www.hwsbydanni.com/bridal.html</loc><lastmod>2026-09-21</lastmod></url>
@@ -46,8 +45,8 @@
   <url><loc>https://www.hwsbydanni.com/wigs.html</loc><lastmod>2026-09-21</lastmod></url>
 
   <url><loc>https://www.hwsbydanni.com/experience.html</loc><lastmod>2026-09-06</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/gallery.html</loc><lastmod>2026-09-06</lastmod></url>
-  <url><loc>https://www.hwsbydanni.com/reviews.html</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/gallery.html</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/reviews.html</loc><lastmod>2026-09-21</lastmod></url>
   <url><loc>https://www.hwsbydanni.com/faq.html</loc><lastmod>2026-09-09</lastmod></url>
 
   <url><loc>https://www.hwsbydanni.com/policies.html</loc><lastmod>2026-09-11</lastmod></url>
@@ -55,6 +54,6 @@
   <url><loc>https://www.hwsbydanni.com/waitlist.html</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://www.hwsbydanni.com/contact.html</loc><lastmod>2026-09-06</lastmod></url>
 
-  <url><loc>https://www.hwsbydanni.com/privacy.html</loc><lastmod>2026-09-20</lastmod></url>
+  <url><loc>https://www.hwsbydanni.com/privacy.html</loc><lastmod>2026-09-21</lastmod></url>
 
 </urlset>

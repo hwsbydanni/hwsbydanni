@@ -47,7 +47,7 @@
 .plan.dark { background: var(--brand-ink); color: var(--brand-ivory); }
 .plan.light { background: var(--section-alt); color: var(--text-main); }
 .plan.light .btn-primary { background: var(--teal-deep); color: var(--brand-ivory); }
-.plan.light .btn-primary:hover { background: var(--teal); }
+.plan.light .btn-primary:hover { background: var(--teal-lift); }
 .plan.light .check-dot { border-color: var(--teal-deep); }
 
 /* ---------- Transformations ---------- */

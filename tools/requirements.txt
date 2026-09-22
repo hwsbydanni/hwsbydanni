@@ -1,0 +1,6 @@
+# The browser-driven checks need Playwright and a Chromium build.
+#   pip install -r tools/requirements.txt
+#   playwright install chromium
+# If Chromium is already on the machine somewhere else, point at it instead:
+#   CHROMIUM_PATH=/path/to/chrome tools/check_all.sh
+playwright>=1.40
