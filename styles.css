@@ -599,10 +599,12 @@ footer { background: var(--page-bg); padding: 76px 24px 40px; border-top: 1px so
 
    If the file has not been fetched, motion.js removes the figure, so a
    missing photo never shows as a broken image. */
-.svc-photo { margin: 0 0 18px; max-width: 420px; }
-.svc-photo img { display: block; width: 100%; height: auto; aspect-ratio: 3/2;
-  object-fit: cover; border: 1px solid var(--line-soft); background: var(--section-alt); }
-.bridal-photo { max-width: 520px; margin-top: 24px; }
+.svc-photo { margin: 0 0 18px; }
+.svc-photo img { display: block; width: auto; height: auto;
+  max-width: min(100%, 420px); max-height: 520px;
+  border: 1px solid var(--line-soft); }
+.bridal-photo { margin-top: 24px; }
+.bridal-photo img { max-width: min(100%, 520px); max-height: 620px; }
 
 /* Jump bar: lets a phone user reach any category without scrolling past it */
 .jump { position: sticky; top: var(--header-h); z-index: 40; background: var(--page-bg);
