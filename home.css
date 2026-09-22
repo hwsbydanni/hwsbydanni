@@ -105,8 +105,10 @@
   .hero .tagline { color: var(--brand-muted); font-size: 1.02rem; margin: 22px 0 36px; max-width: 420px; }
   .hero-checks { list-style: none; margin: 0 0 42px; padding: 0; display: grid; gap: 15px; }
   .hero-checks li { display: flex; align-items: center; gap: 13px; font-size: 0.9rem; color: var(--brand-ivory); letter-spacing: 0.01em; }
-  /* Same variant styles.css carries, for the light half of the compare grid */
-  .btn-text.on-light { color: var(--teal-deep); border-color: var(--teal-deep); }
+  /* Same variant styles.css carries, for the light half of the compare grid.
+     Keep both copies in step: --teal-deep does not flip with the theme. */
+  .btn-text.on-light { color: var(--link); border-color: var(--link); }
+  .btn-text.on-light:hover { color: var(--text-main); border-color: var(--text-main); }
 
   .frame {
     position: relative; aspect-ratio: 3/4; background: linear-gradient(155deg, #201F1D 0%, #131211 100%);
