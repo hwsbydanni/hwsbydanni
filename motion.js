@@ -168,4 +168,27 @@
       });
     });
   });
+
+  // ------------------------------------------------------------------------
+  // Service photos
+  // The pages reference images/services/<appointment type>.jpg, which
+  // tools/fetch_service_photos.py pulls from Acuity. If a file has not been
+  // fetched, or Acuity no longer has that photo, drop the figure rather than
+  // leaving a broken image in the row.
+  // ------------------------------------------------------------------------
+  ready(function () {
+    document.querySelectorAll('.svc-photo img').forEach(function (img) {
+      function drop() { var f = img.closest('.svc-photo'); if (f) f.remove(); }
+      img.addEventListener('error', drop);
+      if (img.complete && img.naturalWidth === 0) drop();   // cached failure
+      // The <img> is lazy, so one below the fold never starts loading and
+      // never fires error, which would leave an empty frame sitting in the
+      // row. Probe the file separately to settle it either way.
+      if (!img.complete) {
+        var probe = new Image();
+        probe.onerror = drop;
+        probe.src = img.currentSrc || img.src;
+      }
+    });
+  });
 })();

@@ -10,6 +10,9 @@
   --gold-dim: #8A6E3F;
   --teal: #63B7AB;
   --teal-deep: #274944;
+  /* Hover for a --teal-deep button. The bright --teal leaves ivory at
+     2.06:1; this lifts the surface and holds it at 4.55:1. */
+  --teal-lift: #3F766E;
   --max: 1160px;
 
   /* Brand-dark sections (hero, transformations, final CTA) never change with theme */
@@ -298,7 +301,7 @@ header { position: sticky; top: 0; z-index: 50; background: rgba(14, 14, 15, 0.9
 .plan li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; }
 .plan .btn-primary { text-align: center; align-self: flex-start; }
 .plan.light-card .btn-primary { background: var(--teal-deep); color: var(--brand-ivory); }
-.plan.light-card .btn-primary:hover { background: var(--teal); }
+.plan.light-card .btn-primary:hover { background: var(--teal-lift); }
 .plan.light-card .check-dot { border-color: var(--teal-deep); }
 
 /* ---------- Service tier cards (Services page) ---------- */
@@ -571,7 +574,7 @@ footer { background: var(--page-bg); padding: 76px 24px 40px; border-top: 1px so
   color: var(--text-main); flex: 1; min-width: 0; overflow-wrap: anywhere; }
 .svc-meta { display: flex; align-items: baseline; gap: 12px; white-space: nowrap; }
 .svc-time { font-family: 'Inter', sans-serif; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
-.svc-price { font-family: 'Fraunces', serif; font-size: 1.02rem; color: var(--gold-dim); }
+.svc-price { font-family: 'Fraunces', serif; font-size: 1.02rem; color: var(--gold-accent); }
 [data-theme="dark"] .svc-price { color: var(--gold-soft); }
 .svc-plus { font-family: 'Inter', sans-serif; color: var(--gold-accent); font-size: 1.1rem; line-height: 1; width: 12px; text-align: center; flex-shrink: 0; }
 .svc[open] .svc-plus { transform: rotate(45deg); }
@@ -585,6 +588,23 @@ footer { background: var(--page-bg); padding: 76px 24px 40px; border-top: 1px so
   transition: background 0.3s ease;
 }
 .svc-book:hover { background: var(--gold-soft); }
+
+/* The photo Danni uploaded to this service in Acuity, fetched into
+   images/services/ by tools/fetch_service_photos.py.
+
+   It lives inside the expanded row rather than the collapsed list on purpose:
+   the list is meant to be scannable in a few thumb-lengths, and 28 thumbnails
+   on the maintenance page would undo that. It also means nothing downloads
+   until someone opens a row, because a closed <details> is display:none.
+
+   If the file has not been fetched, motion.js removes the figure, so a
+   missing photo never shows as a broken image. */
+.svc-photo { margin: 0 0 18px; }
+.svc-photo img { display: block; width: auto; height: auto;
+  max-width: min(100%, 420px); max-height: 520px;
+  border: 1px solid var(--line-soft); }
+.bridal-photo { margin-top: 24px; }
+.bridal-photo img { max-width: min(100%, 520px); max-height: 620px; }
 
 /* Jump bar: lets a phone user reach any category without scrolling past it */
 .jump { position: sticky; top: var(--header-h); z-index: 40; background: var(--page-bg);
