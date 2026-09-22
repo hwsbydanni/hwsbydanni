@@ -695,3 +695,8 @@ footer { background: var(--page-bg); padding: 76px 24px 40px; border-top: 1px so
   display: flex; flex-wrap: wrap; gap: 16px; list-style: none; margin: 0;
   padding: 0 0 0 16px; border-left: 1px solid var(--line);
 }
+
+/* Areas We Serve (traveling.html): town names in columns, no bullets */
+.bio-copy h3 { font-size: 1.15rem; margin: 26px 0 10px; }
+.bio-copy ul.town-list { list-style: none; padding-left: 0; columns: 3 9em; column-gap: 24px; }
+.bio-copy ul.town-list li { margin-bottom: 4px; break-inside: avoid; }
