@@ -35,12 +35,17 @@ jobs:
 
       - run: pip install -r tools/requirements.txt
 
+      - id: playwright-version
+        run: |
+          version=$(python -c "from importlib.metadata import version; print(version('playwright'))")
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
       # Cache the browser: the download is most of the run time.
       - id: browser-cache
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: playwright-chromium-${{ hashFiles('tools/requirements.txt') }}
+          key: playwright-chromium-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
 
       - if: steps.browser-cache.outputs.cache-hit != 'true'
         run: playwright install --with-deps chromium
